@@ -1,20 +1,23 @@
 import React from "react";
 import headerLogo from "../../image/header-logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div>
       <nav className="navbar navbar-expand-xl">
         <div className="container">
-          <a className="navbar-brand me-auto" href="/">
-            <img
-              src={headerLogo}
-              alt="logo"
-              width="140px"
-              title="header-logo"
-              className="img-fluid"
-            />
-          </a>
+          <Link to="/">
+            <span className="navbar-brand me-auto">
+              <img
+                src={headerLogo}
+                alt="logo"
+                width="140px"
+                title="header-logo"
+                className="img-fluid"
+              />
+            </span>
+          </Link>
           {/* Mobil ekranlarda görünen ara butonu */}
           <button
             id="btn-search"
@@ -61,16 +64,20 @@ function Header() {
               </div>
             </div>
             <ul className="nav justify-content-center mx-4 d-none d-xl-block">
-              <li className="nav-item header-item">
-                <a className="nav-link header-link first-element" href="/">
-                  YENİ ÜYE
-                </a>
-              </li>
-              <li className="nav-item header-item">
-                <a className="nav-link header-link" href="/">
-                  ÜYE GİRİŞİ
-                </a>
-              </li>
+              <Link to="/">
+                <li className="nav-item header-item">
+                  <span className="nav-link header-link first-element">
+                    YENİ ÜYE
+                  </span>
+                </li>
+              </Link>
+              <Link to="/">
+                <li className="nav-item header-item">
+                  <span className="nav-link header-link" href="/">
+                    ÜYE GİRİŞİ
+                  </span>
+                </li>
+              </Link>
             </ul>
             {/* <div className="ms-4 d-none d-xl-block">
               <i className="fa-regular fa-user"></i>
