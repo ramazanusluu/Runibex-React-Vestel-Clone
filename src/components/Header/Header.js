@@ -61,13 +61,13 @@ function Header() {
               </div>
             </div>
             <ul className="nav justify-content-center mx-4 d-none d-xl-block">
-              <li className="nav-item menu-item">
-                <a className="nav-link menu-link first-element" href="/">
+              <li className="nav-item header-item">
+                <a className="nav-link header-link first-element" href="/">
                   YENİ ÜYE
                 </a>
               </li>
-              <li className="nav-item menu-item">
-                <a className="nav-link menu-link" href="/">
+              <li className="nav-item header-item">
+                <a className="nav-link header-link" href="/">
                   ÜYE GİRİŞİ
                 </a>
               </li>

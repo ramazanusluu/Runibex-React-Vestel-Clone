@@ -60,7 +60,7 @@ h6 {
 #btn-search:hover {
   color: #df2027 !important;
 }
-.menu-link {
+.header-link {
   padding: 0;
   margin: 0;
   color: rgb(99, 99, 99) !important;
@@ -75,10 +75,10 @@ h6 {
   padding-left: 20px;
   text-transform: uppercase;
 }
-.menu-link:hover {
+.header-link:hover {
   color: #df2027 !important;
 }
-.menu-item {
+.header-item {
   display: inline-block;
   height: 50px;
   cursor: pointer;
