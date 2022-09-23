@@ -12,3 +12,21 @@ font-family: 'Gotham Ultra', sans-serif;
 * {
   font-family: "Gotham Light", sans-serif;
 }
+/* Scroll'un özelleştirilmesi */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 white;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #df2027;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f7272f;
+}
