@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCategoryList } from "../../../api";
+import Loading from "../../Loading/Loading";
 
 function MobileNav() {
   const [selected, setSelected] = useState(null);
@@ -19,7 +20,7 @@ function MobileNav() {
   };
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loading />;
 
   if (error) return "An error has occurred: " + error.message;
 
