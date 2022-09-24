@@ -58,13 +58,13 @@ h6 {
 #btn-search:hover {
   color: #df2027 !important;
 }
-.btn-closed{
+.btn-closed {
   font-size: 24px !important;
   color: #df2027 !important;
   border: none !important;
   box-shadow: none !important;
 }
-.btn-closed:hover{
+.btn-closed:hover {
   color: black !important;
 }
 .header-link {
@@ -213,4 +213,69 @@ h6 {
   font-weight: bold !important;
   color: #ddd;
   cursor: pointer;
+}
+/* Mobile Navbar */
+.mobil-menubar {
+  width: 350px;
+  background-color: #f9f9f9 !important;
+  position: absolute !important;
+  z-index: 1;
+  overflow: auto;
+  color: black !important;
+}
+.mobil-auth {
+  background-color: #3b3b3b;
+  height: 50px !important;
+}
+.mobil-header-link {
+  padding: 0;
+  margin: 0;
+  color: #f9f9f9 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: "Gotham", sans-serif;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  margin-top: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+
+.accordion {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 8px;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: "Gotham", sans-serif;
+}
+.item {
+  background-color: #f0ebe1;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 12px;
+}
+.title {
+  color: #85662b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 8px !important;
+}
+.content {
+  color: #8b7f75;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.content.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+h2 {
+  font-size: 12px !important;
 }
