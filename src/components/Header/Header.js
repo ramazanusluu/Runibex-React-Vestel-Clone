@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import headerLogo from "../../image/header-logo.png";
 import { Link } from "react-router-dom";
+import MobileNav from "../Navbar/MobileNav/MobileNav";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <nav className="navbar navbar-expand-xl">
@@ -34,9 +36,24 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button> */}
-          <button id="btn-hamburger" className="btn btn-bars d-xl-none d-block">
-            <i className="fa-solid fa-bars"></i>
-          </button>
+          {!isOpen && (
+            <button
+              id="btn-hamburger"
+              className="btn btn-bars d-xl-none d-block"
+              onClick={() => setIsOpen(true)}
+            >
+              <i className="fa-solid fa-bars"></i>
+            </button>
+          )}
+          {isOpen && (
+            <button
+              id="btn-hamburger"
+              className="btn btn-closed d-xl-none d-block"
+              onClick={() => setIsOpen(false)}
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+          )}
           <div className="navbar-collapse">
             {/* Kampanyalar ve vstel.com.tr farkı yazısı */}
             <ul className="navbar-nav ms-2 me-auto mb-2 mb-lg-0 d-none d-xl-flex">
@@ -100,6 +117,7 @@ function Header() {
           </div>
         </div>
       </nav>
+      {isOpen && <MobileNav />}
     </div>
   );
 }
