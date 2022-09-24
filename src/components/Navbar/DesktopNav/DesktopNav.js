@@ -31,6 +31,26 @@ function DesktopNav() {
           </div>
         </div>
       </nav>
+      {data.Result.TreeList.map((item, key) => (
+        <div key={key} className="dropdown-content">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-3">
+                {item.SubCategoryList.map((subItem, subKey) => (
+                  <ul j-key={subKey} className="nav flex-column">
+                    <li className="nav-item">
+                      <span className="nav-link dropdown-list">
+                        <i className="list-item fa-solid fa-chevron-right"></i>{" "}
+                        {subItem.DisplayName}
+                      </span>
+                    </li>
+                  </ul>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </>
   );
 }
