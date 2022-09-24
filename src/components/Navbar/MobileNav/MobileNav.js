@@ -32,26 +32,31 @@ function MobileNav() {
             </li>
           </ul>
         </div>
-        <div className="wrapper">
+        <div>
           <div className="accordion">
             {data.Result.TreeList.map((item, key) => (
-              <div key={key} className="item">
-                <div className="title" onClick={() => toggle(key)}>
-                  <h2>{item.DisplayName}</h2>
-                  <span>{seleced === key ? "-" : " +"}</span>
-                </div>
-                {item.SubCategoryList.map((subItem, subKey) => (
-                  <div
-                    key={subKey}
-                    className={seleced === key ? "content show" : "content"}
-                  >
-                    {subItem.DisplayName}
+              <div key={key}>
+                {item.ID < 11 && (
+                  <div className={seleced === key ? "item show" : "item"}>
+                    <div className="title" onClick={() => toggle(key)}>
+                      <h2>{item.DisplayName}</h2>
+                      <span>{seleced === key ? "-" : " +"}</span>
+                    </div>
+                    {item.SubCategoryList.map((subItem, subKey) => (
+                      <div
+                        key={subKey}
+                        className={seleced === key ? "content show" : "content"}
+                      >
+                        {subItem.DisplayName}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
             ))}
           </div>
         </div>
+        <h4>React</h4>
       </div>
     </div>
   );

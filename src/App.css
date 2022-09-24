@@ -244,38 +244,54 @@ h6 {
 }
 
 .accordion {
-  width: 100%;
   margin-top: 10px;
-  font-size: 8px;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  font-family: "Gotham", sans-serif;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .item {
-  background-color: #f0ebe1;
+  background-color: #ffffff;
   margin-bottom: 5px;
-  padding: 5px;
+  padding: 10px;
   font-size: 12px;
+  border: 0.5px solid #ddd;
+}
+.item.show {
+  background-color: #f9f9f9;
+  border-left: 2px solid #df2027;
 }
 .title {
-  color: #85662b;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-size: 8px !important;
 }
+.title h2 {
+  font-size: 15px !important;
+  font-family: "Gotham", sans-serif;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.title span {
+  font-size: 24px !important;
+  font-family: "Gotham Light", sans-serif;
+  color: #df2027;
+}
+
 .content {
-  color: #8b7f75;
+  color: #636363;
+  font-size: 14px;
+  font-family: "Gotham Light", sans-serif;
+  line-height: 40px !important;
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 }
 .content.show {
+ background-color: #f9f9f9;
   height: auto;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(1, 0, 1, 0);
-}
-h2 {
-  font-size: 12px !important;
 }
