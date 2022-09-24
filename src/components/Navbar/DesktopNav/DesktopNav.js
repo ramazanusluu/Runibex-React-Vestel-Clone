@@ -34,7 +34,11 @@ function DesktopNav() {
                 {data.Result.TreeList.map((item, key) => (
                   <li
                     key={key}
-                    className="nav-item menu-item"
+                    className={
+                      selected === key
+                        ? "nav-item menu-item menu-item-open"
+                        : "nav-item menu-item"
+                    }
                     onMouseEnter={() => toggle(key)}
                   >
                     {item.ID < 11 && (

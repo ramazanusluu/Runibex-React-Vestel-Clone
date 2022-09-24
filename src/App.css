@@ -84,7 +84,7 @@ h6 {
 .first-element {
   border-right: solid 1px black;
 }
-/* xl ve üzeri cihazlarda bulunan menü-bar için gerekli olan css'ler */
+/* Desktop (xl ve üzeri) cihazlarda bulunan menü-bar / Navbar için gerekli olan css */
 .bg-danger {
   background-color: #df2027 !important;
 }
@@ -118,6 +118,9 @@ h6 {
   background-color: #f7272f !important;
   color: white !important;
 }
+.menu-item-open {
+  background-color: #f7272f !important;
+}
 .menu-item {
   display: inline-block;
   height: 50px;
@@ -126,12 +129,16 @@ h6 {
 
 .dropdown-content {
   width: 100%;
+  min-height: 450px;
   height: auto;
   background-color: #f7272f;
   display: none;
   overflow: hidden;
   position: absolute;
   z-index: 1;
+}
+.show {
+  display: block;
 }
 .dropdown-list {
   color: #ddd !important;
@@ -145,16 +152,5 @@ h6 {
   font-size: 12px;
   padding-right: 15px;
 }
-.show {
-  display: block;
-}
-.active {
-  background-color: #f7272f;
-}
-.dropdown-section {
-  position: relative;
-  display: block;
-}
-.no-show {
-  visibility: hidden;
-}
+
+
