@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCategoryList } from "../../../api";
 
 function DesktopNav() {
+  const [selected, setSelected] = useState(null);
+  const toggle = (key) => {
+    if (selected === key) {
+      return setSelected(null);
+    }
+    setSelected(key);
+  };
+  const toggleLeave = (key) => {
+    if (selected === key) {
+      return setSelected(null);
+    }
+    setSelected(null);
+  };
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
   if (isLoading) return "Loading...";
@@ -10,6 +23,7 @@ function DesktopNav() {
   if (error) return "An error has occurred: " + error.message;
 
   console.log(data);
+
   return (
     <>
       <nav className="bg-danger d-none d-xl-block">
@@ -18,7 +32,11 @@ function DesktopNav() {
             <div className="col-12">
               <ul className="nav justify-content-center">
                 {data.Result.TreeList.map((item, key) => (
-                  <li key={key} className="nav-item menu-item">
+                  <li
+                    key={key}
+                    className="nav-item menu-item"
+                    onMouseEnter={() => toggle(key)}
+                  >
                     {item.ID < 11 && (
                       <span className="nav-link menu-link">
                         {item.DisplayName}
@@ -32,12 +50,18 @@ function DesktopNav() {
         </div>
       </nav>
       {data.Result.TreeList.map((item, key) => (
-        <div key={key} className="dropdown-content">
+        <div
+          key={key}
+          onMouseLeave={() => toggleLeave(key)}
+          className={
+            selected === key ? "dropdown-content show" : "dropdown-content"
+          }
+        >
           <div className="container">
             <div className="row">
               <div className="col-sm-3">
                 {item.SubCategoryList.map((subItem, subKey) => (
-                  <ul j-key={subKey} className="nav flex-column">
+                  <ul key={subKey} className="nav flex-column">
                     <li className="nav-item">
                       <span className="nav-link dropdown-list">
                         <i className="list-item fa-solid fa-chevron-right"></i>{" "}
