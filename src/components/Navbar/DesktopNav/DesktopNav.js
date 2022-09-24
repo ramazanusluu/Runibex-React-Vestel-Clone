@@ -23,6 +23,12 @@ function DesktopNav() {
     }
     setAltSelected(key);
   };
+  const altToggleLeave = (key) => {
+    if (altSelected === key) {
+      return setAltSelected(null);
+    }
+    setAltSelected(null);
+  };
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
   if (isLoading) return "Loading...";
@@ -75,27 +81,35 @@ function DesktopNav() {
                   <ul key={subKey} className="nav flex-column ">
                     <li className="nav-item">
                       <span
-                        className="nav-link dropdown-list"
+                        className={
+                          altSelected === subKey
+                            ? "nav-link dropdown-list dropdown-list-hover "
+                            : "nav-link dropdown-list"
+                        }
                         onMouseEnter={() => altToggle(subKey)}
                       >
                         <i className="list-item fa-solid fa-chevron-right"></i>{" "}
                         {subItem.DisplayName}
                       </span>
-
-                      <div
-                        className={
-                          altSelected === subKey
-                            ? "alt-sub-category-show"
-                            : "alt-sub-category"
-                        }
-                      >
-                        {subItem.SubCategoryList &&
-                          subItem.SubCategoryList.map((altItem, altKey) => (
-                            <ul key={altKey}>
-                              <li>{altItem.DisplayName}</li>
-                            </ul>
-                          ))}
-                      </div>
+                      {subItem.SubCategoryList.length > 0 && (
+                        <div
+                          onMouseLeave={() => altToggleLeave(subKey)}
+                          className={
+                            altSelected === subKey
+                              ? "alt-sub-category-show"
+                              : "alt-sub-category"
+                          }
+                        >
+                          {subItem.SubCategoryList &&
+                            subItem.SubCategoryList.map((altItem, altKey) => (
+                              <ul key={altKey}>
+                                <li className="alt-sub-list">
+                                  {altItem.DisplayName}
+                                </li>
+                              </ul>
+                            ))}
+                        </div>
+                      )}
                     </li>
                   </ul>
                 ))}
