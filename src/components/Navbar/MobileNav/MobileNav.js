@@ -4,11 +4,18 @@ import { fetchCategoryList } from "../../../api";
 
 function MobileNav() {
   const [selected, setSelected] = useState(null);
+  const [altSelected, setAltSelected] = useState(null);
   const toggle = (i) => {
     if (selected === i) {
       return setSelected(null);
     }
     setSelected(i);
+  };
+  const subToggle = (i) => {
+    if (altSelected === i) {
+      return setAltSelected(null);
+    }
+    setAltSelected(i);
   };
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
@@ -45,21 +52,34 @@ function MobileNav() {
                     {item.SubCategoryList.map((subItem, subKey) => (
                       <div
                         key={subKey}
-                        className={selected === key ? "content show" : "content"}
+                        className={
+                          selected === key ? "content show" : "content"
+                        }
                       >
                         <span>{subItem.DisplayName}</span>
 
                         {subItem.SubCategoryList.length > 0 && (
                           <>
-                            <span className="float-end sub-info">
-                              {selected === key ? "-" : " +"}
+                            <span
+                              onClick={() => subToggle(subKey)}
+                              className="float-end sub-info"
+                            >
+                              {altSelected === subKey ? "-" : " +"}
                             </span>
-                            <div className="sub-content">
+                            <div
+                              className={
+                                altSelected === subKey
+                                  ? "sub-content-show"
+                                  : "sub-content"
+                              }
+                            >
                               {subItem.SubCategoryList &&
                                 subItem.SubCategoryList.map(
                                   (altItem, altKey) => (
                                     <ul key={altKey}>
-                                      <li className="mobil-sub-category">{altItem.DisplayName}</li>
+                                      <li className="mobil-sub-category">
+                                        {altItem.DisplayName}
+                                      </li>
                                     </ul>
                                   )
                                 )}
