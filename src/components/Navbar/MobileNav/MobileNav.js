@@ -23,7 +23,6 @@ function MobileNav() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  console.log(data);
   return (
     <div className="d-xl-none d-block">
       <div className="mobil-menubar">
@@ -94,7 +93,16 @@ function MobileNav() {
             ))}
           </div>
         </div>
-        <h4>React</h4>
+        <div className="ms-3">
+          <h6 className="header-text">Kampanyalar</h6>
+          <h6 className="header-text">Vestel.com.tr Farkı</h6>
+        </div>
+        <button className="btn btn-cart position-relative ms-3 mb-3">
+          <i className=" fa-solid fa-basket-shopping"></i>
+          <span className="basket-items position-absolute top-100 start-100 translate-middle bg-warning border border-light badge rounded-pill rounded-circle">
+            1
+          </span>
+        </button>
       </div>
     </div>
   );

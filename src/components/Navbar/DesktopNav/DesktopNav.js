@@ -35,8 +35,6 @@ function DesktopNav() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  console.log(data);
-
   return (
     <>
       <nav className="bg-danger d-none d-xl-block">

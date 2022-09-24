@@ -318,3 +318,9 @@ h6 {
   padding: 0;
   margin: 0;
 }
+.btn-cart {
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+}
