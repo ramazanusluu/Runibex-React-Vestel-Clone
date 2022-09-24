@@ -4,6 +4,7 @@ import { fetchCategoryList } from "../../../api";
 
 function DesktopNav() {
   const [selected, setSelected] = useState(null);
+  const [altSelected, setAltSelected] = useState(null);
   const toggle = (key) => {
     if (selected === key) {
       return setSelected(null);
@@ -15,6 +16,12 @@ function DesktopNav() {
       return setSelected(null);
     }
     setSelected(null);
+  };
+  const altToggle = (key) => {
+    if (altSelected === key) {
+      return setAltSelected(null);
+    }
+    setAltSelected(key);
   };
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
@@ -63,14 +70,32 @@ function DesktopNav() {
         >
           <div className="container">
             <div className="row">
-              <div className="col-sm-3 sub-menu">
+              <div className="col-sm-3 mx-0 px-0 sub-menu">
                 {item.SubCategoryList.map((subItem, subKey) => (
                   <ul key={subKey} className="nav flex-column ">
                     <li className="nav-item">
-                      <span className="nav-link dropdown-list">
+                      <span
+                        className="nav-link dropdown-list"
+                        onMouseEnter={() => altToggle(subKey)}
+                      >
                         <i className="list-item fa-solid fa-chevron-right"></i>{" "}
                         {subItem.DisplayName}
                       </span>
+
+                      <div
+                        className={
+                          altSelected === subKey
+                            ? "alt-sub-category-show"
+                            : "alt-sub-category"
+                        }
+                      >
+                        {subItem.SubCategoryList &&
+                          subItem.SubCategoryList.map((altItem, altKey) => (
+                            <ul key={altKey}>
+                              <li>{altItem.DisplayName}</li>
+                            </ul>
+                          ))}
+                      </div>
                     </li>
                   </ul>
                 ))}
