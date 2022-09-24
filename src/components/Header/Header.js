@@ -7,8 +7,8 @@ function Header() {
     <div>
       <nav className="navbar navbar-expand-xl">
         <div className="container">
-          <Link to="/">
-            <span className="navbar-brand me-auto">
+          <span className="navbar-brand me-auto">
+            <Link to="/">
               <img
                 src={headerLogo}
                 alt="logo"
@@ -16,8 +16,9 @@ function Header() {
                 title="header-logo"
                 className="img-fluid"
               />
-            </span>
-          </Link>
+            </Link>
+          </span>
+
           {/* Mobil ekranlarda görünen ara butonu */}
           <button
             id="btn-search"
