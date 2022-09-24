@@ -265,6 +265,7 @@ h6 {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .title h2 {
   font-size: 15px !important;
@@ -285,13 +286,36 @@ h6 {
   font-size: 14px;
   font-family: "Gotham Light", sans-serif;
   line-height: 40px !important;
+  cursor: pointer;
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  text-transform: uppercase;
+}
+.content h2 {
+  font-size: 16px !important;
 }
 .content.show {
- background-color: #f9f9f9;
+  background-color: #f9f9f9;
   height: auto;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+.sub-info {
+  font-size: 22px;
+  font-family: "Gotham", sans-serif;
+  font-weight: bold;
+}
+.sub-content {
+  text-transform: capitalize;
+  display: none;
+}
+.sub-content-show {
+  text-transform: capitalize;
+  display: block;
+}
+.mobil-sub-category {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

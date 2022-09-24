@@ -3,9 +3,9 @@ import { useQuery } from "react-query";
 import { fetchCategoryList } from "../../../api";
 
 function MobileNav() {
-  const [seleced, setSelected] = useState(null);
+  const [selected, setSelected] = useState(null);
   const toggle = (i) => {
-    if (seleced === i) {
+    if (selected === i) {
       return setSelected(null);
     }
     setSelected(i);
@@ -37,17 +37,35 @@ function MobileNav() {
             {data.Result.TreeList.map((item, key) => (
               <div key={key}>
                 {item.ID < 11 && (
-                  <div className={seleced === key ? "item show" : "item"}>
+                  <div className={selected === key ? "item show" : "item"}>
                     <div className="title" onClick={() => toggle(key)}>
                       <h2>{item.DisplayName}</h2>
-                      <span>{seleced === key ? "-" : " +"}</span>
+                      <span>{selected === key ? "-" : " +"}</span>
                     </div>
                     {item.SubCategoryList.map((subItem, subKey) => (
                       <div
                         key={subKey}
-                        className={seleced === key ? "content show" : "content"}
+                        className={selected === key ? "content show" : "content"}
                       >
-                        {subItem.DisplayName}
+                        <span>{subItem.DisplayName}</span>
+
+                        {subItem.SubCategoryList.length > 0 && (
+                          <>
+                            <span className="float-end sub-info">
+                              {selected === key ? "-" : " +"}
+                            </span>
+                            <div className="sub-content">
+                              {subItem.SubCategoryList &&
+                                subItem.SubCategoryList.map(
+                                  (altItem, altKey) => (
+                                    <ul key={altKey}>
+                                      <li className="mobil-sub-category">{altItem.DisplayName}</li>
+                                    </ul>
+                                  )
+                                )}
+                            </div>
+                          </>
+                        )}
                       </div>
                     ))}
                   </div>
