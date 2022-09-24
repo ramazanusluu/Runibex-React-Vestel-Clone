@@ -222,6 +222,7 @@ h6 {
   z-index: 1;
   overflow: auto;
   color: black !important;
+  min-height: 95%;
 }
 .mobil-auth {
   background-color: #3b3b3b;
@@ -358,4 +359,22 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Category Card icin gerekli olan css */
+.card {
+  border-radius: 0px;
+  border: none !important;
+}
+.card-head {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+.card-title {
+  font-family: "Gotham", sans-serif;
+  font-weight: bold !important;
+  color: black !important;
+  text-decoration: none !important;
+}
+a {
+  text-decoration: none !important;
 }
