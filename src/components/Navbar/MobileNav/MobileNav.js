@@ -61,7 +61,11 @@ function MobileNav() {
                           selected === key ? "content show" : "content"
                         }
                       >
-                        <span>{subItem.DisplayName}</span>
+                        <Link to={`/products/${subItem.ID}`}>
+                          <span className="mobil-sub-category">
+                            {subItem.DisplayName}
+                          </span>
+                        </Link>
 
                         {subItem.SubCategoryList.length > 0 && (
                           <>
@@ -82,9 +86,11 @@ function MobileNav() {
                                 subItem.SubCategoryList.map(
                                   (altItem, altKey) => (
                                     <ul key={altKey}>
-                                      <li className="mobil-sub-category">
-                                        {altItem.DisplayName}
-                                      </li>
+                                      <Link to={`/products/${altItem.ID}`}>
+                                        <li className="mobil-alt-category">
+                                          {altItem.DisplayName}
+                                        </li>
+                                      </Link>
                                     </ul>
                                   )
                                 )}

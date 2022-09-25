@@ -323,10 +323,20 @@ h6 {
   text-transform: capitalize;
   display: block;
 }
-.mobil-sub-category {
+.mobil-alt-category {
   list-style-type: none;
+  color: #3b3b3b;
   padding: 0;
   margin: 0;
+}
+.mobil-alt-category:hover {
+  color: #df2027;
+}
+.mobil-sub-category {
+  color: #3b3b3b;
+}
+.mobil-sub-category:hover {
+  color: #df2027;
 }
 .btn-cart {
   border: none !important;
