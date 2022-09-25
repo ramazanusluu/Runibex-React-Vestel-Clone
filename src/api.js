@@ -7,3 +7,10 @@ export const fetchCategoryList = async () => {
   );
   return data;
 };
+
+export const fetchSubCategories = async (id) => {
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/mbProduct/ProductList?CategoryID=${id}`
+  );
+  return data;
+};

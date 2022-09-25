@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import DesktopNav from "./components/Navbar/DesktopNav/DesktopNav";
 import Categories from "./pages/Categories/Categories";
+import SubCategories from "./pages/SubCategories/SubCategories";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <DesktopNav />
       <Routes>
         <Route path="/" element={<Categories />} />
+        <Route path="/category/:category_id" element={<SubCategories />} />
       </Routes>
     </>
   );
