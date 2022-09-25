@@ -330,6 +330,12 @@ h6 {
   margin: 0;
   padding: 0;
 }
+.mobil-menu-title {
+  color: black !important;
+}
+.mobil-menu-title:hover {
+  color: #df2027 !important;
+}
 /* Loading Component'i */
 .loading {
   position: absolute;

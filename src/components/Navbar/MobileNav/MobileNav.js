@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
 
@@ -45,9 +46,13 @@ function MobileNav() {
               <div key={key}>
                 {item.ID < 11 && (
                   <div className={selected === key ? "item show" : "item"}>
-                    <div className="title" onClick={() => toggle(key)}>
-                      <h2>{item.DisplayName}</h2>
-                      <span>{selected === key ? "-" : " +"}</span>
+                    <div className="title">
+                      <Link to={`/category/${item.ID}`}>
+                        <h2 className="mobil-menu-title">{item.DisplayName}</h2>
+                      </Link>
+                      <span onClick={() => toggle(key)}>
+                        {selected === key ? "-" : " +"}
+                      </span>
                     </div>
                     {item.SubCategoryList.map((subItem, subKey) => (
                       <div

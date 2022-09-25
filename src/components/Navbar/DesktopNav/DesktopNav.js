@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
 
@@ -54,9 +55,11 @@ function DesktopNav() {
                     onMouseEnter={() => toggle(key)}
                   >
                     {item.ID < 11 && (
-                      <span className="nav-link menu-link">
-                        {item.DisplayName}
-                      </span>
+                      <Link to={`/category/${item.ID}`}>
+                        <span className="nav-link menu-link">
+                          {item.DisplayName}
+                        </span>
+                      </Link>
                     )}
                   </li>
                 ))}
