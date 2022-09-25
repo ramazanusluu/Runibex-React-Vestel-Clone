@@ -23,8 +23,16 @@ function SubCategories() {
   return (
     <>
       <Helmet>
-        <title>{data.Result.Category.PageTitle}</title>
-        <meta name="description" content="Helmet application" />
+        <title>
+          {data.Result.Category.PageTitle
+            ? data.Result.Category.PageTitle
+            : "Vestel'le Olur Neden Olmasın | Vestel"}
+        </title>
+        <meta
+          name="description"
+          content={data.Result.Category.MetaDescription}
+        />
+        <meta name="keywords" content={data.Result.Category.MetaKeywords} />
       </Helmet>
       <div className="container my-5">
         <div className="row">
