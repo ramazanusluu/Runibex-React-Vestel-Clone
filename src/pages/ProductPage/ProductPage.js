@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { fetchProducts } from "../../api";
+import { Helmet } from "react-helmet";
 
 function ProductPage() {
   const { product_id } = useParams();
@@ -18,9 +19,16 @@ function ProductPage() {
   console.log(data.Result.ProductList);
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>
+          {data.Result.Category.PageTitle
+            ? data.Result.Category.PageTitle
+            : "Vestel'le Olur Neden Olmasın | Vestel"}
+        </title>
+      </Helmet>
       <h1>Products</h1>
-    </div>
+    </>
   );
 }
 
