@@ -216,17 +216,22 @@ h6 {
 }
 /* Mobile Navbar */
 .mobil-menubar {
-  width: 350px;
+  box-sizing: border-box;
+  width: 50vw;
+  min-width: 350px;
   background-color: #f9f9f9 !important;
-  position: absolute !important;
-  z-index: 1;
-  overflow: auto;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  overflow: scroll !important;
   color: black !important;
-  min-height: 100vh;
+  height: 100%;
+  opacity: 1;
 }
 .mobil-auth {
   background-color: #3b3b3b;
-  height: 50px !important;
+  padding: 8px;
 }
 .mobil-header-link {
   padding: 0;
@@ -360,7 +365,6 @@ h6 {
     transform: rotate(360deg);
   }
 }
-
 /* Category Card icin gerekli olan css */
 .card {
   border-radius: 0px;
@@ -377,4 +381,11 @@ h6 {
 }
 a {
   text-decoration: none !important;
+}
+/* SubCategory Card icin gerkli olan css */
+.subCategory-card {
+  border: 1px solid #df2027 !important;
+}
+.subCategory-card-head {
+  box-shadow: rgba(225, 54, 54, 0.2) 0px 7px 29px 0px !important;
 }
