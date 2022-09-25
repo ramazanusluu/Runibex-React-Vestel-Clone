@@ -1,6 +1,10 @@
 /* Header component */
 .navbar {
   border-bottom: 2px solid #df2027;
+  background: #ffffff;
+}
+.desktop-menu {
+  margin-top: 65px;
 }
 .header-text {
   font-size: 13px !important;

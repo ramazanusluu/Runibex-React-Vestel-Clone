@@ -7,7 +7,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <nav className="navbar navbar-expand-xl">
+      <nav className="navbar navbar-expand-xl fixed-top">
         <div className="container">
           <span className="navbar-brand me-auto">
             <Link to="/">
@@ -117,7 +117,7 @@ function Header() {
           </div>
         </div>
       </nav>
-      {isOpen && <MobileNav />}
+      <div className="desktop-menu">{isOpen && <MobileNav />}</div>
     </div>
   );
 }
