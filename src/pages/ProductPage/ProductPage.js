@@ -4,15 +4,14 @@ import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { fetchProducts } from "../../api";
 import { Helmet } from "react-helmet";
+import Products from "../../components/Products/Products";
 
 function ProductPage() {
   const { product_id } = useParams();
   const { isLoading, error, data } = useQuery(["products", product_id], () =>
     fetchProducts(product_id)
   );
-
   if (isLoading) return <Loading />;
-
   if (error) return "An error has occurred: " + error.message;
 
   console.log(data);
@@ -27,7 +26,7 @@ function ProductPage() {
             : "Vestel'le Olur Neden Olmasın | Vestel"}
         </title>
       </Helmet>
-      <h1>Products</h1>
+      <Products data={data} />
     </>
   );
 }

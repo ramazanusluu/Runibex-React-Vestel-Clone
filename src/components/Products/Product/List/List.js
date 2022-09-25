@@ -1,10 +1,15 @@
 import React from "react";
+import ProductCard from "./ProductCard/ProductCard";
 
-function List() {
+function List({ list }) {
   return (
-    <div>
-      <h1>List Component</h1>
-    </div>
+    <>
+      <div className="row">
+        {list.map((item, key) => (
+          <ProductCard key={key} item={item} />
+        ))}
+      </div>
+    </>
   );
 }
 
