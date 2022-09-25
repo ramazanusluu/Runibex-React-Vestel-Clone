@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { fetchSubCategories } from "../../api";
 import SubCategoryCard from "../../components/SubCategoryCard/SubCategoryCard";
+import { Helmet } from "react-helmet";
 
 function SubCategories() {
   const { category_id } = useParams();
@@ -21,6 +22,10 @@ function SubCategories() {
   console.log(data.Result.TopCategory.SubCategoryList);
   return (
     <>
+      <Helmet>
+        <title>{data.Result.Category.PageTitle}</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="container my-5">
         <div className="row">
           <h5 className="display-6 text-center">{data.Result.CategoryName}</h5>
