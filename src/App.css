@@ -420,6 +420,9 @@ a {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   min-height: 355px !important;
 }
+.card-body {
+  min-height: 245px;
+}
 .card-text {
   font-family: "Gotham", sans-serif;
   font-size: 14px !important;
@@ -449,7 +452,7 @@ a {
 }
 .btn-incele {
   margin: 0;
-  padding: 10px;
+  padding: 12px;
   border: none;
   background-color: white;
   border-bottom: 3px solid #df2027;
@@ -464,4 +467,66 @@ a {
 .btn-incele:hover {
   background-color: #df2027;
   color: white;
+}
+/* Filter alanı */
+.filter-page-title {
+  font-family: "Gotham", sans-serif;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  letter-spacing: 1px;
+}
+/* -------------------------------------------------------------------- */
+.filter-accordion {
+  margin-top: 2px;
+}
+.filter-item {
+  background-color: #f9f9f9;
+  margin-bottom: 2px;
+  padding: 10px;
+  font-size: 12px;
+  border: 0.5px solid #ddd;
+  border-left: 2px solid #df2027;
+}
+.filter-item.show {
+  background-color: #f9f9f9;
+  border-left: 2px solid #df2027;
+}
+.filter-title {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 4px;
+}
+.filter-title h2 {
+  font-family: "Gotham", sans-serif;
+  font-size: 13px !important;
+  font-weight: bold !important;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.filter-title span {
+  font-size: 14px !important;
+}
+
+.filter-content {
+  color: #636363;
+  font-size: 14px;
+  font-family: "Gotham Light", sans-serif;
+  line-height: 40px !important;
+  cursor: pointer;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  text-transform: uppercase;
+}
+
+.filter-content.show {
+  background-color: #f9f9f9;
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
 }

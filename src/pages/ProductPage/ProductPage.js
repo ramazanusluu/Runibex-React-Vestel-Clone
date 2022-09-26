@@ -25,6 +25,22 @@ function ProductPage() {
             ? data.Result.Category.PageTitle
             : "Vestel'le Olur Neden Olmasın | Vestel"}
         </title>
+        <meta
+          name="description"
+          content={
+            data.Result.Category.MetaDescription
+              ? data.Result.Category.MetaDescription
+              : "Vestel"
+          }
+        />
+        <meta
+          name="keywords"
+          content={
+            data.Result.Category.MetaKeywords
+              ? data.Result.Category.MetaKeywords
+              : "Vestel"
+          }
+        />
       </Helmet>
       <Products data={data} />
     </>
