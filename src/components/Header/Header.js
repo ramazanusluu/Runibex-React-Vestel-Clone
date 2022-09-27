@@ -82,14 +82,14 @@ function Header() {
               </div>
             </div>
             <ul className="nav justify-content-center mx-4 d-none d-xl-block">
-              <Link to="/">
+              <Link to="/register">
                 <li className="nav-item header-item">
                   <span className="nav-link header-link first-element">
                     YENİ ÜYE
                   </span>
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/login">
                 <li className="nav-item header-item">
                   <span className="nav-link header-link" href="/">
                     ÜYE GİRİŞİ

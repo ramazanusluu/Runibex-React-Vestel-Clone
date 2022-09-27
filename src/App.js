@@ -7,6 +7,8 @@ import Categories from "./pages/Categories/Categories";
 import SubCategories from "./pages/SubCategories/SubCategories";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Register from "./pages/Auth/Register/Register";
+import Login from "./pages/Auth/Login/Login";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           path="/products/:product_id/product-detail/:product"
           element={<ProductDetails />}
         />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
