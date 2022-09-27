@@ -17,8 +17,8 @@ function Products({ data }) {
   return (
     <>
       <div className="container my-5">
-        <h2>{data.Result.CategoryName}</h2>
         <div className="row">
+          <h2>{data.Result.CategoryName}</h2>
           <div className="col-lg-3">
             <h5 className="mt-3 filter-page-title">FİLTRELER</h5>
             <Filter filtered={filtered} changeChecked={handleChangeChecked} />

@@ -31,3 +31,7 @@ font-family: 'Gotham Ultra', sans-serif;
 ::-webkit-scrollbar-thumb:hover {
   background: #f7272f;
 }
+
+.image-gallery-icon:hover {
+  color: #df2027;
+}

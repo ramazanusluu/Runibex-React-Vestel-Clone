@@ -151,7 +151,7 @@ h6 {
   display: none;
   overflow: hidden;
   position: absolute;
-  z-index: 1;
+  z-index: 9999999;
 }
 .show {
   display: block;
@@ -531,4 +531,51 @@ a {
   height: auto;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+/* Product Detail icin gerekli olan css */
+
+.detail-title {
+  font-family: "Gotham", sans-serif;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+  font-size: 36px;
+  color: #404040 !important;
+}
+.detail-attribute {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.text-price {
+  font-family: "Gotham", sans-serif;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+  font-size: 30px;
+  color: #df2027 !important;
+}
+
+.basket {
+  background-color: #df2027;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Gotham", sans-serif;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+  font-size: 14px;
+  height: 50px;
+  width: 270px;
+}
+.basket:hover {
+  background-color: #f7272f;
+  box-shadow: rgba(218, 37, 37, 0.4) 0px 7px 29px 0px !important;
+}
+
+@media (max-width: 1199.98px) {
+  .product-detail {
+    margin-top: 100px;
+  }
+  .basket {
+    width: 100%;
+  }
 }
