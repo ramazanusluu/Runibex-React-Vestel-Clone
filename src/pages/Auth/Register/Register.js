@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useFormik } from "formik";
+import validationSchema from "./validations";
 
 function Register() {
   const formik = useFormik({
@@ -14,6 +15,7 @@ function Register() {
       passwordConfirm: "",
       genderID: "1",
     },
+    validationSchema,
     onSubmit: async (values, bag) => {
       console.log(values);
     },
@@ -42,7 +44,11 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                 />
-                <span className="validation-message">Selam</span>
+                {formik.errors.name && formik.touched.name && (
+                  <span className="validation-message">
+                    {formik.errors.name}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="lastname" className="form-label">
@@ -57,6 +63,11 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.lastname}
                 />
+                {formik.errors.lastname && formik.touched.lastname && (
+                  <span className="validation-message">
+                    {formik.errors.lastname}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
@@ -71,6 +82,11 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
                 />
+                {formik.errors.email && formik.touched.email && (
+                  <span className="validation-message">
+                    {formik.errors.email}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="phone" className="form-label">
@@ -82,10 +98,16 @@ function Register() {
                   id="phone"
                   name="phone"
                   placeholder="(5___) ___ __ __"
+                  maxLength={10}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.phone}
                 />
+                {formik.errors.phone && formik.touched.phone && (
+                  <span className="validation-message">
+                    {formik.errors.phone}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="date" className="form-label">
@@ -100,6 +122,11 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.date}
                 />
+                {formik.errors.date && formik.touched.date && (
+                  <span className="validation-message">
+                    {formik.errors.date}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
@@ -114,6 +141,11 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
                 />
+                {formik.errors.password && formik.touched.password && (
+                  <span className="validation-message">
+                    {formik.errors.password}
+                  </span>
+                )}
               </div>
               <div className="mb-3">
                 <label htmlFor="passwordConfirm" className="form-label">
@@ -128,6 +160,12 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.passwordConfirm}
                 />
+                {formik.errors.passwordConfirm &&
+                  formik.touched.passwordConfirm && (
+                    <span className="validation-message">
+                      {formik.errors.passwordConfirm}
+                    </span>
+                  )}
               </div>
               <button type="submit" className="btn-register w-100 my-3">
                 ÜYE OL
