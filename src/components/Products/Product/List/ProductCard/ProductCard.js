@@ -12,7 +12,7 @@ function ProductCard({ item }) {
             className="card-img-top"
             alt={item.DisplayName}
           />
-          <div className="card-text p-1">{item.DisplayName}</div>
+          <div className="card-text product-card-text p-1">{item.DisplayName}</div>
         </div>
         <div className="card-body">
           <p className="card-body-text text-center mb-0">

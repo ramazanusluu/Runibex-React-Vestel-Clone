@@ -416,9 +416,11 @@ a {
 .product-card {
   border: 1px solid #ddd !important;
 }
+.product-card-text {
+  min-height: 50px !important;
+}
 .card-head {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: 355px !important;
 }
 .card-body {
   min-height: 245px;
