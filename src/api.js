@@ -21,3 +21,10 @@ export const fetchProducts = async (id) => {
   );
   return data;
 };
+
+export const fetchProductDetail = async (id) => {
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_BASE_ENDPOINT}/mbProduct/ProductDetail?productId=${id}`
+  );
+  return data;
+};
