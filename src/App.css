@@ -575,7 +575,24 @@ a {
   .product-detail {
     margin-top: 100px;
   }
-  .basket {
-    width: 100%;
+  .basket,
+  .quantity {
+    width: 100% !important;
   }
+}
+
+.quantity {
+  background-color: #ffffff;
+  border: 0.5px solid #cccccc;
+  color: #404040;
+  font-weight: bold;
+  font-family: "Gotham", sans-serif;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+  font-size: 13px;
+  height: 50px;
+  width: 270px;
+}
+.quantity:hover {
+  box-shadow: rgba(218, 37, 37, 0.4) 0px 7px 29px 0px !important;
 }

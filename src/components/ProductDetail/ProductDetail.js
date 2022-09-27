@@ -53,9 +53,19 @@ function ProductDetail({ data }) {
                     : item.ActualPriceToShowOnScreen}
                   TL
                 </h2>
-                <button type="button" className="basket md-block">
-                  SEPETE EKLE
-                </button>
+                {item.SelectionList[0].OptionList[0].Quantity > 0 ? (
+                  <div className="my-2 md-block">
+                    <button type="button" className="basket">
+                      SEPETE EKLE
+                    </button>
+                  </div>
+                ) : (
+                  <div className="my-2">
+                    <button type="button" className="quantity">
+                      STOK GELİNCE HABER VER
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
