@@ -627,3 +627,9 @@ a {
 .btn-register:hover {
   background-color: #df2027 !important;
 }
+
+/* Validasyon mesajları */
+.validation-message {
+  color: #df2027;
+  font-size: 13px;
+}

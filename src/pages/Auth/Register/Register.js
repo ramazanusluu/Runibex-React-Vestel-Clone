@@ -42,6 +42,7 @@ function Register() {
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                 />
+                <span className="validation-message">Selam</span>
               </div>
               <div className="mb-3">
                 <label htmlFor="lastname" className="form-label">
