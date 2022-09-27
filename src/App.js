@@ -6,6 +6,7 @@ import DesktopNav from "./components/Navbar/DesktopNav/DesktopNav";
 import Categories from "./pages/Categories/Categories";
 import SubCategories from "./pages/SubCategories/SubCategories";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Route path="/" element={<Categories />} />
         <Route path="/category/:category_id" element={<SubCategories />} />
         <Route path="/products/:product_id" element={<ProductPage />} />
+        <Route
+          path="/products/:product_id/product-detail/:product"
+          element={<ProductDetails />}
+        />
       </Routes>
     </>
   );
