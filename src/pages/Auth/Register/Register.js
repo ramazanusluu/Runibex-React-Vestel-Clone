@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
+import { fetchRegister } from "../../../api";
 
 function Register() {
   const formik = useFormik({
@@ -17,7 +18,18 @@ function Register() {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      try {
+        const registerRespose = await fetchRegister({
+          Email: values.email,
+          FirstName: values.name,
+          LastName: values.lastname,
+          GenderID: values.genderID,
+          CellPhone: values.phone,
+          Password: values.password,
+          Birthday: values.date,
+        });
+        console.log(registerRespose);
+      } catch (error) {}
     },
   });
   return (
