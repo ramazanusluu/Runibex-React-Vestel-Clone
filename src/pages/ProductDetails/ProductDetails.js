@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import Loading from "../../components/Loading/Loading";
 import { fetchProductDetail } from "../../api";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
+import { Helmet } from "react-helmet";
 
 function ProductDetails() {
   const { product } = useParams();
@@ -17,9 +18,17 @@ function ProductDetails() {
 
   console.log(data);
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>
+          {data.Result.PageTitle
+            ? data.Result.PageTitle
+            : "Vestel'le Olur Neden Olmasın | Vestel"}
+        </title>
+        <meta name="description" content="vestel" />
+      </Helmet>
       <ProductDetail data={data} />
-    </div>
+    </>
   );
 }
 
