@@ -2,7 +2,27 @@ import { FormControlLabel, Checkbox } from "@material-ui/core";
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 
+const useStyles = makeStyles({
+  root: {
+    "&$checked": {
+      color: "rgba(0, 0, 0, 0.64)",
+    },
+  },
+  checked: {},
+  wrap: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginLeft: 0,
+  },
+  label: {},
+});
+
 function FilterItem({ filter, changeChecked }) {
+  const classes = useStyles();
+
   const [seleced, setSelected] = useState(null);
   const toggle = (i) => {
     if (seleced === i) {
@@ -28,9 +48,24 @@ function FilterItem({ filter, changeChecked }) {
             {filter.Attributes.map((attribute) => (
               <div
                 key={attribute.ID}
-                className={seleced === filter.ID ? "filter-content show" : "filter-content"}
+                className={
+                  seleced === filter.ID
+                    ? "filter-content show"
+                    : "filter-content"
+                }
               >
-                {attribute.ValueText}
+                <FormControlLabel
+                  classes={{ label: classes.label, root: classes.wrap }}
+                  control={
+                    <Checkbox
+                      classes={{ checked: classes.checked, root: classes.root }}
+                      size="small"
+                      checked={attribute.IsChecked}
+                      onChange={() => changeChecked(attribute.ID)}
+                    />
+                  }
+                  label={attribute.ValueText}
+                />
               </div>
             ))}
           </div>

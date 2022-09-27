@@ -3,7 +3,7 @@ import List from "../Products/Product/List/List";
 import Filter from "./Product/Filter/Filter";
 
 function Products({ data }) {
-  const [list, setList] = useState(data.Result.ProductList);
+  const [list] = useState(data.Result.ProductList);
   const [filtered, setFiltered] = useState(data.Result.Filters);
 
   const handleChangeChecked = (ID) => {
@@ -13,6 +13,7 @@ function Products({ data }) {
     );
     setFiltered(changeCheckedItems);
   };
+
   return (
     <>
       <div className="container my-5">
