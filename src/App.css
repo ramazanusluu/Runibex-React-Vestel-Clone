@@ -650,3 +650,13 @@ a {
 .btn-login:hover {
   background-color: #dc3c3c !important;
 }
+
+.login-validation {
+  background-color: #df2027;
+  color: #ffffff;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  padding: 2px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
+import validations from "./validations";
 
 function Login() {
   return (
@@ -19,6 +20,7 @@ function Login() {
                 Email: "",
                 Password: "",
               }}
+              validationSchema={validations}
               onSubmit={async (values) => {
                 axios
                   .post(
@@ -36,7 +38,7 @@ function Login() {
                   });
               }}
             >
-              {(props) => (
+              {({ errors, touched }) => (
                 <Form>
                   <div className="mb-3">
                     <label htmlFor="Email" className="form-label">
@@ -48,6 +50,9 @@ function Login() {
                       className="form-control form-control-auth"
                       type="email"
                     />
+                    {errors.Email && touched.Email && (
+                      <div className="login-validation">{errors.Email}</div>
+                    )}
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Password" className="form-label">
@@ -59,6 +64,9 @@ function Login() {
                       className="form-control form-control-auth"
                       type="password"
                     />
+                    {errors.Password && touched.Password && (
+                      <div className="login-validation">{errors.Password}</div>
+                    )}
                   </div>
                   <button type="submit" className="btn-login w-100 my-3">
                     Giriş Yap
