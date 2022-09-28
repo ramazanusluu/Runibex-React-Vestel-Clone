@@ -606,7 +606,7 @@ a {
   color: #404040;
 }
 .form-label {
-  font-size: 14px !important;
+  font-size: 13px !important;
 }
 .form-control-auth {
   border-radius: 1px !important;
@@ -633,4 +633,20 @@ a {
 .validation-message {
   color: #df2027;
   font-size: 13px;
+}
+
+/* Login Page */
+
+.btn-login {
+  background-color: #df2027;
+  border: 1px solid #f7272f !important;
+  padding: 12px 0;
+  color: #fff !important;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: "Gotham ", sans-serif;
+  font-weight: bold !important;
+}
+.btn-login:hover {
+  background-color: #dc3c3c !important;
 }
