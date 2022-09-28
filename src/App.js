@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header/Header";
 import DesktopNav from "./components/Navbar/DesktopNav/DesktopNav";
 import Categories from "./pages/Categories/Categories";
@@ -14,6 +16,7 @@ import Search from "./pages/Search/Search";
 function App() {
   return (
     <>
+      <ToastContainer />
       <Header />
       <DesktopNav />
       <Routes>

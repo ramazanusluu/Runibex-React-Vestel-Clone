@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function Register() {
   return (
@@ -42,6 +43,16 @@ function Register() {
                   )
                   .then((response) => {
                     console.log(response);
+                    if (response.data.Success) {
+                      toast.success(` ${response.data.Message}`, {
+                        position: "bottom-left",
+                      });
+                    }else {
+                      toast.warn(` ${response.data.Message}`, {
+                        position: "bottom-left",
+                      });
+                    }
+
                   })
                   .catch(function (error) {
                     // handle error
