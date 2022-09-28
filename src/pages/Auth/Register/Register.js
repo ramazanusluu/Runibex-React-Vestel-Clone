@@ -23,6 +23,7 @@ function Register() {
                   CellPhone: "",
                   Email: "",
                   Password: "",
+                  PasswordConfirm: "",
                 },
               }}
               onSubmit={async (values) => {
@@ -52,7 +53,7 @@ function Register() {
                 <Form>
                   <div className="mb-3">
                     <label htmlFor="Main.FirstName" className="form-label">
-                      First Name
+                      Ad
                     </label>
                     <Field
                       id="Main.FirstName"
@@ -62,7 +63,7 @@ function Register() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Main.LastName" className="form-label">
-                      Last Name
+                      Soyad
                     </label>
                     <Field
                       id="Main.LastName"
@@ -72,7 +73,7 @@ function Register() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Main.CellPhone" className="form-label">
-                      CellPhone
+                      Telefon
                     </label>
                     <Field
                       id="Main.CellPhone"
@@ -84,7 +85,7 @@ function Register() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Main.Email" className="form-label">
-                      Email
+                      E-Posta
                     </label>
                     <Field
                       id="Main.Email"
@@ -94,8 +95,8 @@ function Register() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="MainPassword" className="form-label">
-                      Password
+                    <label htmlFor="Main.Password" className="form-label">
+                      Şifre
                     </label>
                     <Field
                       id="Main.Password"
@@ -104,8 +105,22 @@ function Register() {
                       type="password"
                     />
                   </div>
+                  <div className="mb-3">
+                    <label
+                      htmlFor="Main.PasswordConfirm"
+                      className="form-label"
+                    >
+                      Şifre (tekrar)
+                    </label>
+                    <Field
+                      id="Main.PasswordConfirm"
+                      name="Main.PasswordConfirm"
+                      className="form-control form-control-auth"
+                      type="password"
+                    />
+                  </div>
                   <button type="submit" className="btn-register w-100 my-3">
-                    Submit
+                    ÜYE OL
                   </button>
                 </Form>
               )}
