@@ -22,12 +22,14 @@ function Header() {
           </span>
 
           {/* Mobil ekranlarda görünen ara butonu */}
-          <button
-            id="btn-search"
-            className="btn d-xl-none d-block buton input-group-text"
-          >
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
+          <Link to="/search">
+            <button
+              id="btn-search"
+              className="btn d-xl-none d-block buton input-group-text"
+            >
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </Link>
           {/* Mobil ekranlarda gelecek olan hamburger menu */}
           {/* <button
             id="nav-toggle-btn"
@@ -76,9 +78,11 @@ function Header() {
                   className="form-control search"
                   placeholder="Ürün, kategori, servis, mağaza ara"
                 />
-                <button className="btn btn-desktop-search input-group-text">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
+                <Link to="/search">
+                  <button className="btn btn-desktop-search input-group-text">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </Link>
               </div>
             </div>
             <ul className="nav justify-content-center mx-4 d-none d-xl-block">

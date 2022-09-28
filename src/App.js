@@ -9,6 +9,7 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
+import Search from "./pages/Search/Search";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </>
   );
