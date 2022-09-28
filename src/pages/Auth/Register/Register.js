@@ -49,7 +49,7 @@ function Register() {
                 </label>
                 <input
                   type="text"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="name"
                   name="name"
                   onChange={formik.handleChange}
@@ -68,7 +68,7 @@ function Register() {
                 </label>
                 <input
                   type="text"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="lastname"
                   name="lastname"
                   onChange={formik.handleChange}
@@ -87,7 +87,7 @@ function Register() {
                 </label>
                 <input
                   type="email"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="email"
                   name="email"
                   onChange={formik.handleChange}
@@ -106,7 +106,7 @@ function Register() {
                 </label>
                 <input
                   type="text"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="phone"
                   name="phone"
                   placeholder="(5___) ___ __ __"
@@ -127,7 +127,7 @@ function Register() {
                 </label>
                 <input
                   type="date"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="date"
                   name="date"
                   onChange={formik.handleChange}
@@ -146,7 +146,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="password"
                   name="password"
                   onChange={formik.handleChange}
@@ -165,7 +165,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
-                  className="form-control "
+                  className="form-control form-control-auth"
                   id="passwordConfirm"
                   name="passwordConfirm"
                   onChange={formik.handleChange}

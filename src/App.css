@@ -607,11 +607,11 @@ a {
 .form-label {
   font-size: 14px !important;
 }
-.form-control {
+.form-control-auth {
   border-radius: 1px !important;
   box-shadow: none !important;
 }
-.form-control:focus {
+.form-control-auth:focus {
   border: 1.5px solid black;
 }
 .btn-register {
