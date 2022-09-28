@@ -1,37 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useFormik } from "formik";
-import validationSchema from "./validations";
-import { fetchRegister } from "../../../api";
+import { Formik, Field, Form } from "formik";
+import axios from "axios";
 
 function Register() {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      lastname: "",
-      email: "",
-      phone: "",
-      date: "",
-      password: "",
-      passwordConfirm: "",
-      genderID: "1",
-    },
-    validationSchema,
-    onSubmit: async (values, bag) => {
-      try {
-        const registerRespose = await fetchRegister({
-          Email: values.email,
-          FirstName: values.name,
-          LastName: values.lastname,
-          GenderID: values.genderID,
-          CellPhone: values.phone,
-          Password: values.password,
-          Birthday: values.date,
-        });
-        console.log(registerRespose);
-      } catch (error) {}
-    },
-  });
   return (
     <>
       <Helmet>
@@ -42,150 +14,122 @@ function Register() {
         <div className="row">
           <h1 className="register-title text-center mt-3">YENİ ÜYELİK</h1>
           <div className="col-lg-5 mx-auto">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Ad
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-auth"
-                  id="name"
-                  name="name"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.name}
-                />
-                {formik.errors.name && formik.touched.name && (
-                  <span className="validation-message">
-                    {formik.errors.name}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="lastname" className="form-label">
-                  Soyad
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-auth"
-                  id="lastname"
-                  name="lastname"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.lastname}
-                />
-                {formik.errors.lastname && formik.touched.lastname && (
-                  <span className="validation-message">
-                    {formik.errors.lastname}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  E-Posta
-                </label>
-                <input
-                  type="email"
-                  className="form-control form-control-auth"
-                  id="email"
-                  name="email"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.email}
-                />
-                {formik.errors.email && formik.touched.email && (
-                  <span className="validation-message">
-                    {formik.errors.email}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="phone" className="form-label">
-                  Telefon
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-auth"
-                  id="phone"
-                  name="phone"
-                  placeholder="(5___) ___ __ __"
-                  maxLength={10}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.phone}
-                />
-                {formik.errors.phone && formik.touched.phone && (
-                  <span className="validation-message">
-                    {formik.errors.phone}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="date" className="form-label">
-                  Doğum Tarihi
-                </label>
-                <input
-                  type="date"
-                  className="form-control form-control-auth"
-                  id="date"
-                  name="date"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.date}
-                />
-                {formik.errors.date && formik.touched.date && (
-                  <span className="validation-message">
-                    {formik.errors.date}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Şifre
-                </label>
-                <input
-                  type="password"
-                  className="form-control form-control-auth"
-                  id="password"
-                  name="password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.password}
-                />
-                {formik.errors.password && formik.touched.password && (
-                  <span className="validation-message">
-                    {formik.errors.password}
-                  </span>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="passwordConfirm" className="form-label">
-                  Şifre
-                </label>
-                <input
-                  type="password"
-                  className="form-control form-control-auth"
-                  id="passwordConfirm"
-                  name="passwordConfirm"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.passwordConfirm}
-                />
-                {formik.errors.passwordConfirm &&
-                  formik.touched.passwordConfirm && (
-                    <span className="validation-message">
-                      {formik.errors.passwordConfirm}
-                    </span>
-                  )}
-              </div>
-              <button type="submit" className="btn-register w-100 my-3">
-                ÜYE OL
-              </button>
-            </form>
+            <Formik
+              initialValues={{
+                Main: {
+                  FirstName: "",
+                  LastName: "",
+                  GenderID: 1,
+                  CellPhone: "",
+                  Email: "",
+                  Password: "",
+                },
+              }}
+              onSubmit={async (values) => {
+                axios
+                  .post(
+                    "https://store.vrunibex.com/mobile2/mbUser/RegisterUser/?Main.FirstName=" +
+                      values.Main.FirstName +
+                      "&Main.LastName=" +
+                      values.Main.LastName +
+                      "&Main.CellPhone=" +
+                      values.Main.CellPhone +
+                      "&Main.Email=" +
+                      values.Main.Email +
+                      "&Main.Password=" +
+                      values.Main.Password
+                  )
+                  .then((response) => {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                  });
+              }}
+            >
+              {(props) => (
+                <Form>
+                  <div className="mb-3">
+                    <label htmlFor="Main.FirstName" className="form-label">
+                      First Name
+                    </label>
+                    <Field
+                      id="Main.FirstName"
+                      className="form-control form-control-auth"
+                      name="Main.FirstName"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="Main.LastName" className="form-label">
+                      Last Name
+                    </label>
+                    <Field
+                      id="Main.LastName"
+                      name="Main.LastName"
+                      className="form-control form-control-auth"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="Main.CellPhone" className="form-label">
+                      CellPhone
+                    </label>
+                    <Field
+                      id="Main.CellPhone"
+                      name="Main.CellPhone"
+                      className="form-control form-control-auth"
+                      maxLength={10}
+                      placeholder="(5__) ___ __ __"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="Main.Email" className="form-label">
+                      Email
+                    </label>
+                    <Field
+                      id="Main.Email"
+                      name="Main.Email"
+                      className="form-control form-control-auth"
+                      type="email"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="MainPassword" className="form-label">
+                      Password
+                    </label>
+                    <Field
+                      id="Main.Password"
+                      name="Main.Password"
+                      className="form-control form-control-auth"
+                      type="password"
+                    />
+                  </div>
+                  <button type="submit" className="btn-register w-100 my-3">
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
           </div>
         </div>
       </div>
+      {/* <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Ad
+        </label>
+        <input
+          type="text"
+          className="form-control form-control-auth"
+          id="name"
+          name="name"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.name}
+        />
+        {formik.errors.name && formik.touched.name && (
+          <span className="validation-message">{formik.errors.name}</span>
+        )}
+      </div> */}
     </>
   );
 }
