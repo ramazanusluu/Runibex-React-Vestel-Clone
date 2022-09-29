@@ -5,10 +5,13 @@ import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
 import { useAuth } from "../../../contexts/AuthContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function MobileNav({ open }) {
   const [selected, setSelected] = useState(null);
   const [altSelected, setAltSelected] = useState(null);
+
+  let navigate = useNavigate();
 
   const { loggedIn, user, logout } = useAuth();
 
@@ -26,11 +29,12 @@ function MobileNav({ open }) {
   };
 
   const handleLogout = async () => {
-    open(false)
+    open(false);
     logout();
     toast.info(`Çıkış işlemi başarılı.`, {
       position: "bottom-right",
     });
+    navigate("/login");
   };
 
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);

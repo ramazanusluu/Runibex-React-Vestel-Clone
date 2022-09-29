@@ -4,24 +4,25 @@ import { Link } from "react-router-dom";
 import MobileNav from "../Navbar/MobileNav/MobileNav";
 import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  let navigate = useNavigate();
 
   const { loggedIn, user, logout } = useAuth();
 
   console.log("AuthContext user", user);
 
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     logout();
-    if(logout) {
-      toast.info(
-        `Çıkış işlemi başarılı.`,
-        {
-          position: "bottom-right",
-        }
-      );
+    if (logout) {
+      toast.info(`Çıkış işlemi başarılı.`, {
+        position: "bottom-right",
+      });
     }
+    navigate("/login");
   };
 
   return (
