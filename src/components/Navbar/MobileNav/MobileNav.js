@@ -67,7 +67,7 @@ function MobileNav({ open }) {
                   </button>
                   <button
                     className="btn btn-link btn-logout"
-                    onClick={() => (open = false)}
+                    onClick={() => open(false)}
                   >
                     Çıkış Yap
                   </button>
@@ -84,7 +84,12 @@ function MobileNav({ open }) {
                   <div className={selected === key ? "item show" : "item"}>
                     <div className="title">
                       <Link to={`/category/${item.ID}`}>
-                        <h2 className="mobil-menu-title" onClick={() => open(false)}>{item.DisplayName}</h2>
+                        <h2
+                          className="mobil-menu-title"
+                          onClick={() => open(false)}
+                        >
+                          {item.DisplayName}
+                        </h2>
                       </Link>
                       <span onClick={() => toggle(key)}>
                         {selected === key ? "-" : " +"}
