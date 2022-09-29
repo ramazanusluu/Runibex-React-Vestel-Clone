@@ -46,12 +46,12 @@ function Register() {
                   .then((response) => {
                     console.log(response);
                     if (response.data.Success) {
-                      toast.success(` ${response.data.Message}`, {
+                      toast.success(`${response.data.Message}`, {
                         position: "bottom-left",
                       });
                       navigate("/login");
                     } else {
-                      toast.warn(` ${response.data.Message}`, {
+                      toast.warn(`${response.data.Message}`, {
                         position: "bottom-left",
                       });
                     }

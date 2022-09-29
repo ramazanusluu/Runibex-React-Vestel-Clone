@@ -3,8 +3,11 @@ import { Helmet } from "react-helmet";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
 import validations from "./validations";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  let navigate = useNavigate();
   return (
     <>
       <Helmet>
@@ -31,6 +34,19 @@ function Login() {
                   )
                   .then((response) => {
                     console.log(response);
+                    if (response.data.Success) {
+                      toast.success(
+                        `Sn. ${response.data.Result.FullName} giriş işleminiz başarılı.`,
+                        {
+                          position: "bottom-left",
+                        }
+                      );
+                      navigate("/");
+                    } else {
+                      toast.warn(`${response.data.Message}`, {
+                        position: "bottom-left",
+                      });
+                    }
                   })
                   .catch(function (error) {
                     // handle error
