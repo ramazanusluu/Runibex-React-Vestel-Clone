@@ -48,6 +48,18 @@
 .btn-profile:hover {
   color: black !important;
 }
+.btn-mobil-profile {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Gotham", sans-serif !important;
+  font-weight: bold !important;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.btn-mobil-profile:hover {
+  color: #ffffff !important;
+}
 .btn-logout {
   padding: 0;
   margin: 0;
@@ -61,7 +73,9 @@
 .btn-logout:hover {
   color: black !important;
 }
-
+.mobil-user-icon {
+  color: #ffffff;
+}
 .fa-basket-shopping {
   font-size: 20px;
 }

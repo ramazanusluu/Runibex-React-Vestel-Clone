@@ -61,8 +61,8 @@ function MobileNav({ open }) {
             <>
               <div className="mobil-user-info">
                 <div className="mobil-info">
-                  <i className="fa-regular fa-user me-2"></i>
-                  <button className="btn btn-link btn-profile">
+                  <i className="fa-regular fa-user me-2 mobil-user-icon"></i>
+                  <button className="btn btn-link btn-mobil-profile">
                     Ramazan USLU
                   </button>
                   <button
