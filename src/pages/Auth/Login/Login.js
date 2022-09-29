@@ -40,14 +40,14 @@ function Login() {
                       toast.success(
                         `Sn. ${response.data.Result.FullName} giriş işleminiz başarılı.`,
                         {
-                          position: "bottom-left",
+                          position: "bottom-right",
                         }
                       );
                       navigate("/");
                       login(response.data);
                     } else {
                       toast.warn(`${response.data.Message}`, {
-                        position: "bottom-left",
+                        position: "bottom-right",
                       });
                     }
                   })
