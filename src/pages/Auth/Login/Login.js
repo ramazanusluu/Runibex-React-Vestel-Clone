@@ -5,9 +5,11 @@ import axios from "axios";
 import validations from "./validations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../contexts/AuthContext";
 
 function Login() {
   let navigate = useNavigate();
+  const { login } = useAuth();
   return (
     <>
       <Helmet>
@@ -42,6 +44,7 @@ function Login() {
                         }
                       );
                       navigate("/");
+                      login(response.data);
                     } else {
                       toast.warn(`${response.data.Message}`, {
                         position: "bottom-left",
