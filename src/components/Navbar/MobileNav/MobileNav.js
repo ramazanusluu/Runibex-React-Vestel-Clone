@@ -63,7 +63,7 @@ function MobileNav({ open }) {
                 <div className="mobil-info">
                   <i className="fa-regular fa-user me-2 mobil-user-icon"></i>
                   <button className="btn btn-link btn-mobil-profile">
-                    {user.Result.FullName}
+                    {user && user.Result.FullName}
                   </button>
                   <button
                     className="btn btn-link btn-logout"

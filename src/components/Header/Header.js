@@ -115,7 +115,7 @@ function Header() {
                 <div className="mx-4 d-none d-xl-block user-info">
                   <i className="fa-regular fa-user me-2"></i>
                   <button className="btn btn-link btn-profile">
-                    {user.Result.FullName}
+                    {user && user.Result.FullName}
                   </button>
                   <button className="btn btn-link btn-logout">Çıkış Yap</button>
                 </div>
