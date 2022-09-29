@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  let navigate = useNavigate();
   return (
     <>
       <Helmet>
@@ -20,7 +22,7 @@ function Register() {
                 Main: {
                   FirstName: "",
                   LastName: "",
-                  GenderID: 1,
+                  GenderID: "1",
                   CellPhone: "",
                   Email: "",
                   Password: "",
@@ -47,12 +49,12 @@ function Register() {
                       toast.success(` ${response.data.Message}`, {
                         position: "bottom-left",
                       });
-                    }else {
+                      navigate("/login");
+                    } else {
                       toast.warn(` ${response.data.Message}`, {
                         position: "bottom-left",
                       });
                     }
-
                   })
                   .catch(function (error) {
                     // handle error
