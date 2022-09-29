@@ -22,11 +22,10 @@ function Register() {
                 Main: {
                   FirstName: "",
                   LastName: "",
-                  GenderID: "1",
+                  GenderID: 1,
                   CellPhone: "",
                   Email: "",
                   Password: "",
-                  PasswordConfirm: "",
                 },
               }}
               onSubmit={async (values) => {
@@ -114,20 +113,6 @@ function Register() {
                     <Field
                       id="Main.Password"
                       name="Main.Password"
-                      className="form-control form-control-auth"
-                      type="password"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label
-                      htmlFor="Main.PasswordConfirm"
-                      className="form-label"
-                    >
-                      Şifre (tekrar)
-                    </label>
-                    <Field
-                      id="Main.PasswordConfirm"
-                      name="Main.PasswordConfirm"
                       className="form-control form-control-auth"
                       type="password"
                     />

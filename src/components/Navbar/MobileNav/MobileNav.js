@@ -3,10 +3,12 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
+import { useAuth } from "../../../contexts/AuthContext";
 
 function MobileNav() {
   const [selected, setSelected] = useState(null);
   const [altSelected, setAltSelected] = useState(null);
+  const { loggedIn } = useAuth();
   const toggle = (i) => {
     if (selected === i) {
       return setSelected(null);
@@ -29,20 +31,37 @@ function MobileNav() {
     <div className="d-xl-none d-block">
       <div className="mobil-menubar">
         <div className="mobil-auth">
-          <ul className="nav justify-content-center mx-4">
-            <Link to="/register">
-              <li className="nav-item header-item">
-                <span className="nav-link mobil-header-link first-element">
-                  YENİ ÜYE
-                </span>
-              </li>
-            </Link>
-            <Link to="/login">
-              <li className="nav-item header-item">
-                <span className="nav-link mobil-header-link">ÜYE GİRİŞİ</span>
-              </li>
-            </Link>
-          </ul>
+          {!loggedIn && (
+            <>
+              <ul className="nav justify-content-center mx-4">
+                <Link to="/register">
+                  <li className="nav-item header-item">
+                    <span className="nav-link mobil-header-link first-element">
+                      YENİ ÜYE
+                    </span>
+                  </li>
+                </Link>
+                <Link to="/login">
+                  <li className="nav-item header-item">
+                    <span className="nav-link mobil-header-link">
+                      ÜYE GİRİŞİ
+                    </span>
+                  </li>
+                </Link>
+              </ul>
+            </>
+          )}
+          {loggedIn && (
+            <>
+              <div className="user-info my-auto">
+                <i className="fa-regular fa-user me-2"></i>
+                <button className="btn btn-link btn-profile">
+                  Ramazan USLU
+                </button>
+                <button className="btn btn-link btn-logout">Çıkış Yap</button>
+              </div>
+            </>
+          )}
         </div>
         <div>
           <div className="accordion">
