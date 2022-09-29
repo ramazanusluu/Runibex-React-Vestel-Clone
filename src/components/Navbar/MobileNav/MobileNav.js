@@ -5,7 +5,7 @@ import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
 import { useAuth } from "../../../contexts/AuthContext";
 
-function MobileNav() {
+function MobileNav({ open }) {
   const [selected, setSelected] = useState(null);
   const [altSelected, setAltSelected] = useState(null);
   const { loggedIn } = useAuth();
@@ -35,14 +35,20 @@ function MobileNav() {
             <>
               <ul className="nav justify-content-center mx-4">
                 <Link to="/register">
-                  <li className="nav-item header-item">
+                  <li
+                    className="nav-item header-item"
+                    onClick={() => open(false)}
+                  >
                     <span className="nav-link mobil-header-link first-element">
                       YENİ ÜYE
                     </span>
                   </li>
                 </Link>
                 <Link to="/login">
-                  <li className="nav-item header-item">
+                  <li
+                    className="nav-item header-item"
+                    onClick={() => open(false)}
+                  >
                     <span className="nav-link mobil-header-link">
                       ÜYE GİRİŞİ
                     </span>
@@ -53,12 +59,19 @@ function MobileNav() {
           )}
           {loggedIn && (
             <>
-              <div className="user-info my-auto">
-                <i className="fa-regular fa-user me-2"></i>
-                <button className="btn btn-link btn-profile">
-                  Ramazan USLU
-                </button>
-                <button className="btn btn-link btn-logout">Çıkış Yap</button>
+              <div className="mobil-user-info">
+                <div className="mobil-info">
+                  <i className="fa-regular fa-user me-2"></i>
+                  <button className="btn btn-link btn-profile">
+                    Ramazan USLU
+                  </button>
+                  <button
+                    className="btn btn-link btn-logout"
+                    onClick={() => (open = false)}
+                  >
+                    Çıkış Yap
+                  </button>
+                </div>
               </div>
             </>
           )}
@@ -71,7 +84,7 @@ function MobileNav() {
                   <div className={selected === key ? "item show" : "item"}>
                     <div className="title">
                       <Link to={`/category/${item.ID}`}>
-                        <h2 className="mobil-menu-title">{item.DisplayName}</h2>
+                        <h2 className="mobil-menu-title" onClick={() => open(false)}>{item.DisplayName}</h2>
                       </Link>
                       <span onClick={() => toggle(key)}>
                         {selected === key ? "-" : " +"}

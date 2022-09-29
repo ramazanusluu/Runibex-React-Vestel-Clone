@@ -132,7 +132,7 @@ function Header() {
           </div>
         </div>
       </nav>
-      <div className="desktop-menu">{isOpen && <MobileNav />}</div>
+      <div className="desktop-menu">{isOpen && <MobileNav open={setIsOpen}/>}</div>
     </div>
   );
 }

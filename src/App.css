@@ -258,6 +258,7 @@
 .mobil-auth {
   background-color: #3b3b3b;
   padding: 8px;
+  height: 68px;
 }
 .mobil-header-link {
   padding: 0;
@@ -671,6 +672,9 @@ a {
 .btn-login:hover {
   background-color: #dc3c3c !important;
 }
+.btn {
+  box-shadow: none !important;
+}
 
 .login-validation {
   background-color: #df2027;
@@ -679,5 +683,11 @@ a {
   font-weight: bold !important;
   padding: 2px;
   letter-spacing: 1px;
+  margin-top: 10px;
+}
+.mobil-user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
 }
