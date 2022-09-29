@@ -3,6 +3,7 @@ import headerLogo from "../../image/header-logo.png";
 import { Link } from "react-router-dom";
 import MobileNav from "../Navbar/MobileNav/MobileNav";
 import { useAuth } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,14 @@ function Header() {
 
   const handleLogout = async() => {
     logout();
+    if(logout) {
+      toast.info(
+        `Çıkış işlemi başarılı.`,
+        {
+          position: "bottom-right",
+        }
+      );
+    }
   };
 
   return (

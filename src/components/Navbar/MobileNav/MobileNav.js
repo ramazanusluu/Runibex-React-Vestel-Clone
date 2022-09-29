@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { fetchCategoryList } from "../../../api";
 import Loading from "../../Loading/Loading";
 import { useAuth } from "../../../contexts/AuthContext";
+import { toast } from "react-toastify";
 
 function MobileNav({ open }) {
   const [selected, setSelected] = useState(null);
@@ -25,7 +26,11 @@ function MobileNav({ open }) {
   };
 
   const handleLogout = async () => {
+    open(false)
     logout();
+    toast.info(`Çıkış işlemi başarılı.`, {
+      position: "bottom-right",
+    });
   };
 
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
