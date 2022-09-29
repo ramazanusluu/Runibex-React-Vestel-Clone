@@ -36,3 +36,10 @@ export const fetchRegister = async (input) => {
   );
   return data;
 };
+
+export const fetchLogout = async () => {
+  const { data } = await axios.get(
+    "https://www.vestel.com.tr/mobile2/mbUser/Logout"
+  );
+  return data;
+};

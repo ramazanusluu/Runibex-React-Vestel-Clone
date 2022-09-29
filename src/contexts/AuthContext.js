@@ -1,4 +1,5 @@
 import { useState, createContext, useEffect, useContext } from "react";
+import { fetchLogout } from "../api";
 
 const AuthContext = createContext();
 
@@ -18,10 +19,17 @@ const AuthProvider = ({ children }) => {
     setLoggedIn(true);
     setUser(data);
   };
+  const logout = async () => {
+    setLoggedIn(false);
+    setUser(null);
+    await fetchLogout();
+    localStorage.removeItem("user");
+  };
   const values = {
     loggedIn,
     user,
     login,
+    logout,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

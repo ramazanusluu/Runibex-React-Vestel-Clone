@@ -8,7 +8,9 @@ import { useAuth } from "../../../contexts/AuthContext";
 function MobileNav({ open }) {
   const [selected, setSelected] = useState(null);
   const [altSelected, setAltSelected] = useState(null);
-  const { loggedIn, user } = useAuth();
+
+  const { loggedIn, user, logout } = useAuth();
+
   const toggle = (i) => {
     if (selected === i) {
       return setSelected(null);
@@ -21,6 +23,11 @@ function MobileNav({ open }) {
     }
     setAltSelected(i);
   };
+
+  const handleLogout = async () => {
+    logout();
+  };
+
   const { isLoading, error, data } = useQuery("category", fetchCategoryList);
 
   if (isLoading) return <Loading />;
@@ -67,7 +74,7 @@ function MobileNav({ open }) {
                   </button>
                   <button
                     className="btn btn-link btn-logout"
-                    onClick={() => open(false)}
+                    onClick={handleLogout}
                   >
                     Çıkış Yap
                   </button>
