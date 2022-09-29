@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import headerLogo from "../../image/header-logo.png";
 import { Link } from "react-router-dom";
 import MobileNav from "../Navbar/MobileNav/MobileNav";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { loggedIn } = useAuth();
+  console.log(loggedIn);
+
   return (
     <div>
       <nav className="navbar navbar-expand-xl fixed-top">
@@ -85,31 +90,37 @@ function Header() {
                 </Link>
               </div>
             </div>
-            <ul className="nav justify-content-center mx-4 d-none d-xl-block">
-              <Link to="/register">
-                <li className="nav-item header-item">
-                  <span className="nav-link header-link first-element">
-                    YENİ ÜYE
-                  </span>
-                </li>
-              </Link>
-              <Link to="/login">
-                <li className="nav-item header-item">
-                  <span className="nav-link header-link" href="/">
-                    ÜYE GİRİŞİ
-                  </span>
-                </li>
-              </Link>
-            </ul>
-            {/* <div className="ms-4 d-none d-xl-block">
-              <i className="fa-regular fa-user"></i>
-            </div>
-            <div className="uye-bilgi ms-4 d-none d-xl-block">
-              <h6>Ramazan USLU</h6>
-              <span className="text-danger">
-                Hesabım <i className="fa-solid fa-angle-down"></i>
-              </span>
-            </div> */}
+            {!loggedIn && (
+              <>
+                <ul className="nav justify-content-center mx-4 d-none d-xl-block">
+                  <Link to="/register">
+                    <li className="nav-item header-item">
+                      <span className="nav-link header-link first-element">
+                        YENİ ÜYE
+                      </span>
+                    </li>
+                  </Link>
+                  <Link to="/login">
+                    <li className="nav-item header-item">
+                      <span className="nav-link header-link" href="/">
+                        ÜYE GİRİŞİ
+                      </span>
+                    </li>
+                  </Link>
+                </ul>
+              </>
+            )}
+            {loggedIn && (
+              <>
+                <div className="mx-4 d-none d-xl-block user-info">
+                  <i className="fa-regular fa-user me-2"></i>
+                  <button className="btn btn-link btn-profile">
+                    Ramazan USLU
+                  </button>
+                  <button className="btn btn-link btn-logout">Çıkış Yap</button>
+                </div>
+              </>
+            )}
             <div className="d-none d-xl-block">
               <div className="position-relative">
                 <i className="fa-solid fa-basket-shopping"></i>
