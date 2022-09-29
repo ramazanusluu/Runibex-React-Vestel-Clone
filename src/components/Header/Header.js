@@ -97,6 +97,8 @@ function Header() {
                   type="text"
                   className="form-control search"
                   placeholder="Ürün, kategori, servis, mağaza ara"
+                  onFocus={() => navigate("/search")}
+                  readOnly
                 />
                 <Link to="/search">
                   <button className="btn btn-desktop-search input-group-text">
