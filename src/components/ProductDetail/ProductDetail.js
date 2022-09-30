@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery";
 
 function ProductDetail({ data }) {
   const images = data.Result.ImageSetList?.map((item) => ({
-    original: item.ImageList[0].Path,
+    original: item.ImageList[0]?.Path,
   }));
   const item = data.Result;
   return (

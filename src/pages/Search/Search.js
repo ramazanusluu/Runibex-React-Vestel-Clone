@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -64,7 +65,9 @@ function Search() {
               {result && (
                 <div>
                   {result.Result.ProductList.map((item) => (
-                    <div key={item.ID}>{item.DisplayName}</div>
+                    <Link to={`/product-detail/${item.ID}`}>
+                      <div key={item.ID}>{item.DisplayName}</div>
+                    </Link>
                   ))}
                 </div>
               )}
