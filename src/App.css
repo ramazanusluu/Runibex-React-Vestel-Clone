@@ -718,3 +718,7 @@ a {
   border: 2px solid #df2027 !important;
   font-size: 14px !important;
 }
+.search-button:hover {
+  background-color: #df2027 !important;
+  color: #ffffff !important;
+}

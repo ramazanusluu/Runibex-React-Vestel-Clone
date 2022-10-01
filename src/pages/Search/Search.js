@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 function Search() {
   const [search, setSearch] = useState("");
   const [result, setResult] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   // fetch(
   //   `https://www.vestel.com.tr/mobile2/mbProduct/ProductSearch?searchKey=${search}`
@@ -29,12 +31,19 @@ function Search() {
   // console.log("rsult", result);
 
   const handleSearch = async () => {
+    setLoading(true);
     await fetch(
       `https://www.vestel.com.tr/mobile2/mbProduct/ProductSearch?searchKey=${search}`
     )
       .then((res) => res.json())
-      .then((data) => setResult(data));
+      .then((data) => {
+        setResult(data.Result.ProductList);
+        setLoading(false);
+      });
   };
+
+  if (isLoading) return <Loading />;
+
   console.log("result", result);
 
   return (
@@ -64,11 +73,12 @@ function Search() {
             <div>
               {result && (
                 <div>
-                  {result.Result.ProductList.map((item) => (
-                    <Link to={`/product-detail/${item.ID}`}>
-                      <div key={item.ID}>{item.DisplayName}</div>
-                    </Link>
-                  ))}
+                  {result &&
+                    result.map((item) => (
+                      <Link to={`/product-detail/${item.ID}`}>
+                        <div key={item.ID}>{item.DisplayName}</div>
+                      </Link>
+                    ))}
                 </div>
               )}
             </div>
