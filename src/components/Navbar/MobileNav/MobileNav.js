@@ -166,12 +166,14 @@ function MobileNav({ open }) {
           <h6 className="header-text">Kampanyalar</h6>
           <h6 className="header-text">Vestel.com.tr Farkı</h6>
         </div>
-        <button className="btn btn-cart position-relative ms-3 mb-3">
-          <i className=" fa-solid fa-basket-shopping"></i>
-          <span className="basket-items position-absolute top-100 start-100 translate-middle bg-warning border border-light badge rounded-pill rounded-circle">
-            1
-          </span>
-        </button>
+        <Link to="/card">
+          <button className="btn btn-cart position-relative ms-3 mb-3 shopping-card">
+            <i className=" fa-solid fa-basket-shopping"></i>
+            <span className="basket-items position-absolute top-100 start-100 translate-middle bg-warning border border-light badge rounded-pill rounded-circle">
+              1
+            </span>
+          </button>
+        </Link>
       </div>
     </div>
   );

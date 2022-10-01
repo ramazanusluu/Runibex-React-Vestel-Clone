@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
 import Search from "./pages/Search/Search";
+import ShoppingCard from "./pages/ShoppingCard/ShoppingCard";
 
 function App() {
   return (
@@ -23,13 +24,11 @@ function App() {
         <Route path="/" element={<Categories />} />
         <Route path="/category/:category_id" element={<SubCategories />} />
         <Route path="/products/:product_id" element={<ProductPage />} />
-        <Route
-          path="/product-detail/:product"
-          element={<ProductDetails />}
-        />
+        <Route path="/product-detail/:product" element={<ProductDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/card" element={<ShoppingCard />} />
       </Routes>
     </>
   );

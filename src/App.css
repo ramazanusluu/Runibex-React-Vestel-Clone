@@ -73,6 +73,14 @@
 .btn-logout:hover {
   color: black !important;
 }
+
+/* ShoppingCard icon */
+.shopping-card {
+  color: #404040 !important;
+}
+.shopping-card:hover {
+  color: black !important;
+}
 .mobil-user-icon {
   color: #ffffff;
 }
