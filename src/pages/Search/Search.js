@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import ProductCard from "../../components/Products/Product/List/ProductCard/ProductCard";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -73,15 +74,16 @@ function Search() {
             <div>
               {result && (
                 <>
-                  <div>
-                    {result.Success &&
-                      result.Result.ProductList.map((item) => (
-                        <Link to={`/product-detail/${item.ID}`}>
-                          <div key={item.ID}>{item.DisplayName}</div>
-                        </Link>
-                      ))}
+                  <div className="container my-5 px-xl-5">
+                    <div className="row">
+                      {result.Success && <h1>"{search}" Arama Sonucu</h1>}
+                      {result.Success &&
+                        result.Result.ProductList.map((item, key) => (
+                          <ProductCard key={key} item={item} />
+                        ))}
+                    </div>
+                    <div>{!result.Success && <div>{result.Message}</div>}</div>
                   </div>
-                  <div>{!result.Success && <div>{result.Message}</div>}</div>
                 </>
               )}
             </div>
