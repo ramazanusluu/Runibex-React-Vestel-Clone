@@ -37,7 +37,7 @@ function Search() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setResult(data.Result.ProductList);
+        setResult(data);
         setLoading(false);
       });
   };
@@ -72,14 +72,17 @@ function Search() {
             </div>
             <div>
               {result && (
-                <div>
-                  {result &&
-                    result.map((item) => (
-                      <Link to={`/product-detail/${item.ID}`}>
-                        <div key={item.ID}>{item.DisplayName}</div>
-                      </Link>
-                    ))}
-                </div>
+                <>
+                  <div>
+                    {result.Success &&
+                      result.Result.ProductList.map((item) => (
+                        <Link to={`/product-detail/${item.ID}`}>
+                          <div key={item.ID}>{item.DisplayName}</div>
+                        </Link>
+                      ))}
+                  </div>
+                  <div>{!result.Success && <div>{result.Message}</div>}</div>
+                </>
               )}
             </div>
           </div>
