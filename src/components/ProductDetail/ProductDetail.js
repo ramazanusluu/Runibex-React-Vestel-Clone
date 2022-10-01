@@ -3,6 +3,8 @@ import ImageGallery from "react-image-gallery";
 import { useDispatch } from "react-redux";
 import { addToCard } from "../../redux/card/cardSlice";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
 
 function ProductDetail({ data }) {
   const images = data.Result.ImageSetList?.map((item) => ({
@@ -10,11 +12,31 @@ function ProductDetail({ data }) {
   }));
   const item = data.Result;
 
+  const { loggedIn } = useAuth();
+
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
+
   const handleAddToCard = (item) => {
-    dispatch(addToCard(item));
+    if (loggedIn) {
+      dispatch(addToCard(item));
+    } else {
+      navigate("/login");
+      toast.warning(`Sepete ürün ekleyebilmek için önce giriş yapın.`, {
+        position: "bottom-right",
+      });
+    }
+  };
+
+  const handleStok = () => {
+    if (loggedIn) {
+      toast.info(`Ürün geldiğinde SMS ile bilgilendirileceksiniz.`, {
+        position: "bottom-right",
+      });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -75,10 +97,7 @@ function ProductDetail({ data }) {
                   </div>
                 ) : (
                   <div className="my-2">
-                    <button
-                      className="quantity"
-                      onClick={() => navigate("/login")}
-                    >
+                    <button className="quantity" onClick={() => handleStok()}>
                       STOK GELİNCE HABER VER
                     </button>
                   </div>
