@@ -10,7 +10,15 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     addToCard(state, action) {
-      state.cardItems.push(action.payload);
+      const itemIndex = state.cardItems.findIndex(
+        (item) => item.ID === action.payload.ID
+      );
+      if (itemIndex >= 0) {
+        state.cardItems[itemIndex].cadQuantity += 1;
+      } else {
+        const tempProduct = { ...action.payload, cadQuantity: 1 };
+        state.cardItems.push(tempProduct);
+      }
     },
   },
 });
