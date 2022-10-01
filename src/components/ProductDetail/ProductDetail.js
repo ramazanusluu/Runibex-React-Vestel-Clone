@@ -1,11 +1,19 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
+import { useDispatch } from "react-redux";
+import { addToCard } from "../../redux/card/cardSlice";
 
 function ProductDetail({ data }) {
   const images = data.Result.ImageSetList?.map((item) => ({
     original: item.ImageList[0]?.Path,
   }));
   const item = data.Result;
+
+  const dispatch = useDispatch();
+  const handleAddToCard = (item) => {
+    dispatch(addToCard(item));
+  };
+
   return (
     <>
       <div>
@@ -55,15 +63,16 @@ function ProductDetail({ data }) {
                 </h2>
                 {item.SelectionList[0].OptionList[0].Quantity > 0 ? (
                   <div className="my-2 md-block">
-                    <button type="button" className="basket">
+                    <button
+                      className="basket"
+                      onClick={() => handleAddToCard(item)}
+                    >
                       SEPETE EKLE
                     </button>
                   </div>
                 ) : (
                   <div className="my-2">
-                    <button type="button" className="quantity">
-                      STOK GELİNCE HABER VER
-                    </button>
+                    <button className="quantity">STOK GELİNCE HABER VER</button>
                   </div>
                 )}
               </div>
