@@ -2,12 +2,15 @@ import React from "react";
 import ImageGallery from "react-image-gallery";
 import { useDispatch } from "react-redux";
 import { addToCard } from "../../redux/card/cardSlice";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetail({ data }) {
   const images = data.Result.ImageSetList?.map((item) => ({
     original: item.ImageList[0]?.Path,
   }));
   const item = data.Result;
+
+  let navigate = useNavigate();
 
   const dispatch = useDispatch();
   const handleAddToCard = (item) => {
@@ -72,7 +75,12 @@ function ProductDetail({ data }) {
                   </div>
                 ) : (
                   <div className="my-2">
-                    <button className="quantity">STOK GELİNCE HABER VER</button>
+                    <button
+                      className="quantity"
+                      onClick={() => navigate("/login")}
+                    >
+                      STOK GELİNCE HABER VER
+                    </button>
                   </div>
                 )}
               </div>
