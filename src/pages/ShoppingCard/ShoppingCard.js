@@ -16,7 +16,7 @@ function ShoppingCard() {
             {card.cardItems.length > 0 && <BasketItem />}
           </div>
           <div className="col-lg-4">
-            <SubTotal />
+            {card.cardItems.length > 0 && <SubTotal />}
           </div>
         </div>
       </div>
