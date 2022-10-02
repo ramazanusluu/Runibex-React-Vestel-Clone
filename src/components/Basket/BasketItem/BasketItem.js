@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCard, decreaseCard } from "../../../redux/card/cardSlice";
+import {
+  removeFromCard,
+  decreaseCard,
+  increaseCard,
+} from "../../../redux/card/cardSlice";
 
 function BasketItem() {
   const card = useSelector((state) => state.card);
@@ -14,6 +18,10 @@ function BasketItem() {
 
   const handleDecreaseCard = (item) => {
     dispatch(decreaseCard(item));
+  };
+
+  const handleIncreaseCard = (item) => {
+    dispatch(increaseCard(item));
   };
   return (
     <>
@@ -59,7 +67,10 @@ function BasketItem() {
               <button className="btn btn-item-quantity">
                 {item.cardQuantity}
               </button>
-              <button className="btn btn-piece" onClick={() => {}}>
+              <button
+                className="btn btn-piece"
+                onClick={() => handleIncreaseCard(item)}
+              >
                 <i className="fa-solid fa-plus"></i>
               </button>
             </div>
