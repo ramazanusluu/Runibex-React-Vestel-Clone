@@ -678,6 +678,11 @@ a {
   background-color: #df2027 !important;
 }
 
+.register-login:hover {
+  color: #dc3c3c;
+  cursor: pointer;
+}
+
 /* Validasyon mesajları */
 .validation-message {
   color: #df2027;

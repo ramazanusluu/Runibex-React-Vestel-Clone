@@ -164,6 +164,17 @@ function Register() {
                 </Form>
               )}
             </Formik>
+            <div>
+              <h6>
+                Zaten üye misiniz? Üye girişi için{" "}
+                <span
+                  className="register-login"
+                  onClick={() => navigate("/login")}
+                >
+                  tıklayınız
+                </span>
+              </h6>
+            </div>
           </div>
         </div>
       </div>
