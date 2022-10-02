@@ -17,7 +17,7 @@ export const cardSlice = createSlice({
         (item) => item.ID === action.payload.ID
       );
       if (itemIndex >= 0) {
-        state.cardItems[itemIndex].cadQuantity += 1;
+        state.cardItems[itemIndex].cardQuantity += 1;
         toast.info(
           `${state.cardItems[itemIndex].DisplayName}, miktarı 1 arttırıldı.`,
           {
@@ -25,7 +25,7 @@ export const cardSlice = createSlice({
           }
         );
       } else {
-        const tempProduct = { ...action.payload, cadQuantity: 1 };
+        const tempProduct = { ...action.payload, cardQuantity: 1 };
         state.cardItems.push(tempProduct);
         toast.success(`${action.payload.DisplayName}, sepete eklendi.`, {
           position: "bottom-right",

@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function BasketItem() {
+  const card = useSelector((state) => state.card);
   return (
     <>
       <h4 className="basket-item-title">SEPETİM</h4>
@@ -19,13 +22,40 @@ function BasketItem() {
           Toplam
         </div>
       </div>
-      <div className="row">
-        <div className="col-lg-3 text-center">Resim</div>
-        <div className="col-lg-4 text-center">Bilgi</div>
-        <div className="col-lg-2 text-center">Adet</div>
-        <div className="col-lg-2 text-center">Toplam</div>
-        <div className="col-lg-1 text-center">Temizle</div>
-      </div>
+      {card.cardItems.map((item) => (
+        <div key={item.ID} className="row">
+          <div className="col-lg-3 d-flex align-items-center justify-content-center">
+            <img
+              src={item.FirstProductImageURL}
+              alt="ProductType"
+              width={130}
+              className="img-top-fluid"
+            />
+          </div>
+          <div className="col-lg-4 d-flex align-items-center justify-content-center">
+            <Link to={`/product-detail/${item.ID}`}>
+              <h5 className="card-item-name">{item.DisplayName}</h5>
+            </Link>
+          </div>
+          <div className="col-lg-2 d-flex align-items-center justify-content-center">
+            <div className="btn-group">
+              <button className="btn btn-piece" onClick={() => {}}>
+                <i className="fa-solid fa-minus"></i>
+              </button>
+              <button className="btn btn-item-quantity">{item.cardQuantity}</button>
+              <button className="btn btn-piece" onClick={() => {}}>
+                <i className="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div className="col-lg-2 d-flex align-items-center justify-content-center">
+            Toplam
+          </div>
+          <div className="col-lg-1 text-center text-xl-start">
+            <i className="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      ))}
     </>
   );
 }
