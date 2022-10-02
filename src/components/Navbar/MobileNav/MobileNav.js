@@ -170,7 +170,7 @@ function MobileNav({ open }) {
           <h6 className="header-text">Vestel.com.tr Farkı</h6>
         </div>
         <Link to="/card">
-          <button className="btn btn-cart position-relative ms-3 mb-3 shopping-card">
+          <button className="btn btn-cart position-relative ms-3 mb-3 shopping-card" onClick={() => open(false)}>
             <i className=" fa-solid fa-basket-shopping"></i>
             <span className="basket-items position-absolute top-100 start-100 translate-middle bg-warning border border-light badge rounded-pill rounded-circle">
               {card.cardItems.length}

@@ -49,6 +49,7 @@ function Header() {
             <button
               id="btn-search"
               className="btn d-xl-none d-block buton input-group-text"
+              onClick={() => setIsOpen(false)}
             >
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
