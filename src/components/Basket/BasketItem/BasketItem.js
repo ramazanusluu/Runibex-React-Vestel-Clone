@@ -1,9 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeFromCard } from "../../../redux/card/cardSlice";
 
 function BasketItem() {
   const card = useSelector((state) => state.card);
+
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCard = (item) => {
+    dispatch(removeFromCard(item));
+  };
   return (
     <>
       <h4 className="basket-item-title">SEPETİM</h4>
@@ -59,7 +66,10 @@ function BasketItem() {
             </h6>
           </div>
           <div className="col-lg-1 text-center text-xl-start ">
-            <i className="fa-solid fa-xmark item-delete"></i>
+            <i
+              className="fa-solid fa-xmark item-delete"
+              onClick={() => handleRemoveFromCard(item)}
+            ></i>
           </div>
         </div>
       ))}
