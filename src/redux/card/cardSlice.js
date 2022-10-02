@@ -43,9 +43,31 @@ export const cardSlice = createSlice({
         position: "bottom-right",
       });
     },
+    decreaseCard(state, action) {
+      const itemIndex = state.cardItems.findIndex(
+        (cardItem) => cardItem.ID === action.payload.ID
+      );
+      if (state.cardItems[itemIndex].cardQuantity > 1) {
+        state.cardItems[itemIndex].cardQuantity -= 1;
+
+        toast.info(`${action.payload.DisplayName}, mikarı 1 azaltıldı.`, {
+          position: "bottom-right",
+        });
+      } else if (state.cardItems[itemIndex].cardQuantity === 1) {
+        const nextCardItems = state.cardItems.filter(
+          (cardItem) => cardItem.ID !== action.payload.ID
+        );
+        state.cardItems = nextCardItems;
+
+        toast.error(`${action.payload.DisplayName}, sepetten çıkarıldı.`, {
+          position: "bottom-right",
+        });
+      }
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+    },
   },
 });
 
-export const { addToCard, removeFromCard } = cardSlice.actions;
+export const { addToCard, removeFromCard, decreaseCard } = cardSlice.actions;
 
 export default cardSlice.reducer;
