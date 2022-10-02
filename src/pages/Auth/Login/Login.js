@@ -75,7 +75,7 @@ function Login() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Password" className="form-label">
-                      ŞİFRENİZ
+                      ŞİFRE
                     </label>
                     <Field
                       id="Password"
@@ -93,6 +93,17 @@ function Login() {
                 </Form>
               )}
             </Formik>
+            <div>
+              <h6>
+                Üye değil misiniz? üye olmak için{" "}
+                <span
+                  className="register-login"
+                  onClick={() => navigate("/register")}
+                >
+                  tıklayınız
+                </span>
+              </h6>
+            </div>
           </div>
         </div>
       </div>
