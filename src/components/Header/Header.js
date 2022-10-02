@@ -5,9 +5,12 @@ import MobileNav from "../Navbar/MobileNav/MobileNav";
 import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const card = useSelector((state) => state.card);
 
   let navigate = useNavigate();
 
@@ -148,7 +151,7 @@ function Header() {
                 <div className="position-relative">
                   <i className="fa-solid fa-basket-shopping"></i>
                   <span className="basket-items position-absolute top-100 start-100 translate-middle badge rounded-pill rounded-circle">
-                    0
+                    {card.cardItems.length}
                   </span>
                 </div>
               </div>

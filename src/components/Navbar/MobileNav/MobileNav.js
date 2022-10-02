@@ -6,10 +6,13 @@ import Loading from "../../Loading/Loading";
 import { useAuth } from "../../../contexts/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function MobileNav({ open }) {
   const [selected, setSelected] = useState(null);
   const [altSelected, setAltSelected] = useState(null);
+
+  const card = useSelector((state) => state.card);
 
   let navigate = useNavigate();
 
@@ -170,7 +173,7 @@ function MobileNav({ open }) {
           <button className="btn btn-cart position-relative ms-3 mb-3 shopping-card">
             <i className=" fa-solid fa-basket-shopping"></i>
             <span className="basket-items position-absolute top-100 start-100 translate-middle bg-warning border border-light badge rounded-pill rounded-circle">
-              1
+              {card.cardItems.length}
             </span>
           </button>
         </Link>
