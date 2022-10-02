@@ -825,3 +825,18 @@ a {
   cursor: pointer;
   color: #dc3c3c !important;
 }
+.btn-basket-clear {
+  border: 1px solid #7a7a7a !important;
+  background-color: #ffffff !important;
+  transition: all 0.3s linear;
+  font-family: "Gotham", sans-serif;
+  font-weight: 500 !important;
+  font-size: 14px;
+  color: #7a7a7a;
+  height: 40px;
+  padding: 0 20px 0 20px;
+}
+.btn-basket-clear:hover {
+  background-color: #293033 !important;
+  color: #ffffff;
+}

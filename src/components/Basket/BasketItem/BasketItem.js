@@ -63,6 +63,9 @@ function BasketItem() {
           </div>
         </div>
       ))}
+      <button className="btn-basket-clear my-5">
+        <i className="fa-regular fa-circle-xmark me-1"></i>SEPETİ BOŞALT
+      </button>
     </>
   );
 }
