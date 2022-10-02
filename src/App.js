@@ -13,6 +13,7 @@ import Register from "./pages/Auth/Register/Register";
 import Login from "./pages/Auth/Login/Login";
 import Search from "./pages/Search/Search";
 import ShoppingCard from "./pages/ShoppingCard/ShoppingCard";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/card" element={<ShoppingCard />} />
       </Routes>
+      <Footer />
     </>
   );
 }
