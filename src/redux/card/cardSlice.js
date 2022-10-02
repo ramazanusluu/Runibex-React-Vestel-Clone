@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   cardItems: [],
@@ -15,9 +16,18 @@ export const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cadQuantity += 1;
+        toast.info(
+          `${state.cardItems[itemIndex].DisplayName}, miktarı 1 arttırıldı.`,
+          {
+            position: "bottom-right",
+          }
+        );
       } else {
         const tempProduct = { ...action.payload, cadQuantity: 1 };
         state.cardItems.push(tempProduct);
+        toast.success(`${action.payload.DisplayName}, sepete eklendi.`, {
+          position: "bottom-right",
+        });
       }
     },
   },
