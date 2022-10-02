@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getTotals } from "../../../redux/card/cardSlice";
 
 function SubTotal() {
+  const card = useSelector((state) => state.card);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [card]);
   return (
     <div className="sub-total">
       <h5 className="basket-item-title">SİPARİŞ ÖZETİ</h5>
       <div>
         <i className="fa-solid fa-cart-shopping"></i>
-        <span className="fs-6"> Toplam ürün</span>
+        <span className="fs-6"> Toplam {card.cardTotalQuantity} ürün</span>
       </div>
       <div className="total-price mt-3">
         <span className="label">Ödenecek Tutar</span>
-        <span className="label-price">2000000 TL</span>
+        <span className="label-price">
+          {card.cardTotalAmount < 1000
+            ? card.cardTotalAmount
+            : card.cardTotalAmount / 1000}{" "}
+          TL
+        </span>
       </div>
       <div className="total-price mt-3">
         <span className="label">Ürünler</span>
-        <span className="label-price">0 TL</span>
+        <span className="label-price">
+          {card.cardTotalAmount < 1000
+            ? card.cardTotalAmount
+            : card.cardTotalAmount / 1000}{" "}
+          TL
+        </span>
       </div>
       <div className="total-price mt-3">
         <span className="label">Kargo Ücreti</span>

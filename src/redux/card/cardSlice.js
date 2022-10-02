@@ -96,6 +96,24 @@ export const cardSlice = createSlice({
       });
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+    getTotals(state, action) {
+      let { total, quantity } = state.cardItems.reduce(
+        (cardTotal, cardItem) => {
+          const { ActualPriceToShowOnScreen, cardQuantity } = cardItem;
+          const itemTotal = ActualPriceToShowOnScreen * cardQuantity;
+          cardTotal.total += itemTotal;
+          cardTotal.quantity += cardQuantity;
+          return cardTotal;
+        },
+        {
+          total: 0,
+          quantity: 0,
+        }
+      );
+      total = parseFloat(total.toFixed(2));
+      state.cardTotalQuantity = quantity;
+      state.cardTotalAmount = total;
+    },
   },
 });
 
@@ -105,6 +123,7 @@ export const {
   decreaseCard,
   increaseCard,
   clearCard,
+  getTotals,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
