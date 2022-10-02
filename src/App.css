@@ -787,3 +787,9 @@ a {
   color: #404040 !important;
   letter-spacing: 1px;
 }
+.basket-table-title {
+  font-family: "Gotham ", sans-serif;
+  font-weight: 700 !important;
+  font-size: 16px;
+  color: #404040 !important;
+}
