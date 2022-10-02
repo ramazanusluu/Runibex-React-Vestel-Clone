@@ -818,3 +818,10 @@ a {
   font-size: 18px;
   color: #dc3c3c;
 }
+.item-delete {
+  color: #636363 !important;
+}
+.item-delete:hover {
+  cursor: pointer;
+  color: #dc3c3c !important;
+}

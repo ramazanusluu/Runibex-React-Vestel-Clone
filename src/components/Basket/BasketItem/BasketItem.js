@@ -58,8 +58,8 @@ function BasketItem() {
               TL
             </h6>
           </div>
-          <div className="col-lg-1 text-center text-xl-start">
-            <i className="fa-solid fa-xmark"></i>
+          <div className="col-lg-1 text-center text-xl-start ">
+            <i className="fa-solid fa-xmark item-delete"></i>
           </div>
         </div>
       ))}
