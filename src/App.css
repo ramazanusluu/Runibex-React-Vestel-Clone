@@ -767,3 +767,23 @@ a {
 .empty-basket-info span:hover {
   color: #df2027 !important;
 }
+.basket-item-title {
+  font-family: "Gotham ", sans-serif;
+  font-weight: bold !important;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #404040;
+}
+.basket-item-info {
+  font-family: "Gotham ", sans-serif;
+  font-weight: 500 !important;
+  font-size: 20px;
+  color: #636363;
+}
+.basket-item-info span {
+  font-family: "Gotham ", sans-serif;
+  font-weight: 700 !important;
+  font-size: 20px;
+  color: #404040 !important;
+  letter-spacing: 1px;
+}
