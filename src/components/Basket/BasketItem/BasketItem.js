@@ -5,6 +5,7 @@ import {
   removeFromCard,
   decreaseCard,
   increaseCard,
+  clearCard,
 } from "../../../redux/card/cardSlice";
 
 function BasketItem() {
@@ -22,6 +23,10 @@ function BasketItem() {
 
   const handleIncreaseCard = (item) => {
     dispatch(increaseCard(item));
+  };
+
+  const handleClearCard = () => {
+    dispatch(clearCard());
   };
   return (
     <>
@@ -91,7 +96,10 @@ function BasketItem() {
           </div>
         </div>
       ))}
-      <button className="btn-basket-clear my-5">
+      <button
+        className="btn-basket-clear my-5"
+        onClick={() => handleClearCard()}
+      >
         <i className="fa-regular fa-circle-xmark me-1"></i>SEPETİ BOŞALT
       </button>
     </>
