@@ -840,3 +840,54 @@ a {
   background-color: #293033 !important;
   color: #ffffff;
 }
+.sub-total {
+  border-left: 1px solid #7a7a7a;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  border-bottom: 1px solid #293033;
+}
+.label {
+  font-family: "Gotham", sans-serif;
+  font-weight: 500 !important;
+  font-size: 16px;
+  color: #293033 !important;
+}
+.label-price {
+  font-family: "Gotham", sans-serif;
+  font-weight: 500 !important;
+  font-size: 20px;
+  color: #293033 !important;
+}
+.discount {
+  font-size: 15px;
+}
+.discount-icon {
+  font-size: 12px !important;
+}
+.btn-pay {
+  border: none;
+  background-color: #dc3c3c;
+  padding: 12px 0;
+  color: #ffffff;
+  font-family: "Gotham", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+.btn-pay:hover {
+  background-color: #df2027;
+}
+.btn-shop {
+  border: none;
+  background-color: #293033;
+  padding: 12px 0;
+  color: #ffffff;
+  font-family: "Gotham", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
