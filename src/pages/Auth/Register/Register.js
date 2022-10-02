@@ -4,6 +4,7 @@ import { Formik, Field, Form } from "formik";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 function Register() {
   let navigate = useNavigate();
@@ -28,6 +29,21 @@ function Register() {
                   Password: "",
                 },
               }}
+              validationSchema={Yup.object().shape({
+                Main: Yup.object().shape({
+                  FirstName: Yup.string().required("Lütfen adınızı giriniz."),
+                  LastName: Yup.string().required("Lütfen soyadınızı giriniz."),
+                  CellPhone: Yup.string()
+                    .min(10, "Telefon numaranız 10 karakter olmalıdır.")
+                    .required("Cep telefonu numarasını yazmalısınız."),
+                  Email: Yup.string()
+                    .email("Lütfen geçerli bir e-posta adresi giriniz.")
+                    .required("Lütfen e-posta adresinizi giriniz."),
+                  Password: Yup.string()
+                    .min(8, "Şifreniz 8 karakterden oluşmalıdır.")
+                    .required("Lütfen şifrenizi giriniz."),
+                }),
+              })}
               onSubmit={async (values) => {
                 axios
                   .post(
@@ -61,61 +77,86 @@ function Register() {
                   });
               }}
             >
-              {(props) => (
+              {({ errors, touched }) => (
                 <Form>
                   <div className="mb-3">
-                    <label htmlFor="Main.FirstName" className="form-label">
+                    <label htmlFor="FirstName" className="form-label">
                       Ad
                     </label>
                     <Field
-                      id="Main.FirstName"
+                      id="FirstName"
                       className="form-control form-control-auth"
                       name="Main.FirstName"
                     />
+                    {errors.Main?.FirstName && touched.Main?.FirstName && (
+                      <div className="validation-message">
+                        {errors.Main?.FirstName}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Main.LastName" className="form-label">
+                    <label htmlFor="LastName" className="form-label">
                       Soyad
                     </label>
                     <Field
-                      id="Main.LastName"
+                      id="LastName"
                       name="Main.LastName"
                       className="form-control form-control-auth"
                     />
+                    {errors.Main?.LastName && touched.Main?.LastName && (
+                      <div className="validation-message">
+                        {errors.Main?.LastName}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Main.CellPhone" className="form-label">
+                    <label htmlFor="CellPhone" className="form-label">
                       Telefon
                     </label>
                     <Field
-                      id="Main.CellPhone"
+                      id="CellPhone"
                       name="Main.CellPhone"
                       className="form-control form-control-auth"
                       maxLength={10}
                       placeholder="(5__) ___ __ __"
                     />
+                    {errors.Main?.CellPhone && touched.Main?.CellPhone && (
+                      <div className="validation-message">
+                        {errors.Main?.CellPhone}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Main.Email" className="form-label">
+                    <label htmlFor="Email" className="form-label">
                       E-Posta
                     </label>
                     <Field
-                      id="Main.Email"
+                      id="Email"
                       name="Main.Email"
                       className="form-control form-control-auth"
                       type="email"
                     />
+                    {errors.Main?.Email && touched.Main?.Email && (
+                      <div className="validation-message">
+                        {errors.Main?.Email}
+                      </div>
+                    )}
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="Main.Password" className="form-label">
+                    <label htmlFor="Password" className="form-label">
                       Şifre
                     </label>
                     <Field
-                      id="Main.Password"
+                      id="Password"
                       name="Main.Password"
                       className="form-control form-control-auth"
                       type="password"
                     />
+                    {errors.Main?.Password && touched.Main?.Password && (
+                      <div className="validation-message">
+                        {errors.Main?.Password}
+                      </div>
+                    )}
                   </div>
                   <button type="submit" className="btn-register w-100 my-3">
                     ÜYE OL
