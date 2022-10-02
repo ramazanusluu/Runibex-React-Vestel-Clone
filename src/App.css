@@ -896,15 +896,31 @@ a {
   font-size: 14px;
   font-weight: bold;
 }
-
 .footer {
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 50px;
+  z-index: -1;
+  color: #949494;
+}
+/* Not found */
+.not-found-emoji {
+  color: #dc3c3c;
+  font-size: 48px !important;
+}
+.not-found-title {
+  color: #dc3c3c;
+  font-family: "Gotham", sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+.not-found-info {
+  font-family: "Gotham", sans-serif;
+  font-weight: bold;
 }

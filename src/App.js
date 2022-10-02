@@ -14,6 +14,7 @@ import Login from "./pages/Auth/Login/Login";
 import Search from "./pages/Search/Search";
 import ShoppingCard from "./pages/ShoppingCard/ShoppingCard";
 import Footer from "./components/Footer/Footer";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
         <Route path="/card" element={<ShoppingCard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
