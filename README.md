@@ -16,3 +16,16 @@ Vestel test servilerini kullanarak;
 - Servislerden dönen response mesajlarını ve gerekli yerlerde kullanıcı bilgilendirme mesajlarını toast mesajı olarak kullanıcıya gösterme işlemleri
 
 gibi özellikleri projeme ekledim.  
+
+### Projede kullandığım paketler;
+- Bootstrap
+- Axios
+- React-Query
+- React-Router-Dom-V6
+- React-Redux
+- @Reduxjs/tookit
+- React-Helmet
+- React-Image-Gallery
+- React-Toastify
+- Formik
+- Yup
