@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
-  cardItems: [],
+  cardItems: localStorage.getItem("cardItems")
+    ? JSON.parse(localStorage.getItem("cardItems"))
+    : [],
   cardTotalQuantity: 0,
   cardTotalAmount: 0,
 };
@@ -29,6 +31,7 @@ export const cardSlice = createSlice({
           position: "bottom-right",
         });
       }
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
   },
 });
